@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="teamProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/teamProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="teamProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="teamProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="annotations-api" />
+          <element id="library" level="project" name="mysql-connector-java-5.1" />
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="jsoup-1.14.3" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
