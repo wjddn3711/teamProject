@@ -79,6 +79,10 @@
                     <th colspan="4">
                         <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='insert.do'">나도 신청하기</button>
                         <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4">
                         <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
                             <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
                             <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;

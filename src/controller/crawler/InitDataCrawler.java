@@ -1,4 +1,4 @@
-package controller;
+package controller.crawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

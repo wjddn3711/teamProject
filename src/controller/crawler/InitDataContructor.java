@@ -1,24 +1,13 @@
-package controller;
+package controller.crawler;
 
-import model.BoardDAO;
 import model.ProductDAO;
 import model.ProductVO;
 import org.jsoup.nodes.Document;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.util.ArrayList;
 
-@WebListener
-public class Listener implements ServletContextListener, HttpSessionListener, HttpSessionAttributeListener {
-
-    public Listener() {
-    }
-
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        /* This method is called when the servlet context is initialized(when the Web application is deployed). */
+public class InitDataContructor {
+    public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
         ProductVO vo = null; // 초기값 null 설정
         ArrayList<ProductVO> datas = new ArrayList<ProductVO>();
@@ -122,13 +111,5 @@ public class Listener implements ServletContextListener, HttpSessionListener, Ht
         }
         dao.insertAll(braisedSideDishData); // 조림 데이터들 insert 진행
         System.out.println("braisedSideDishData insert 완료");
-    }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        /* This method is called when the servlet Context is undeployed or Application Server shuts down. */
-        // 서버 종료시 모든 데이터 삭제
-        ProductDAO dao = new ProductDAO();
-        dao.deleteAll();
     }
 }

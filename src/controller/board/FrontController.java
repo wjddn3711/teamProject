@@ -1,4 +1,7 @@
-package controller;
+package controller.board;
+
+import controller.ActionForward;
+import controller.MainAction;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -34,6 +37,14 @@ public class FrontController extends HttpServlet {
                 System.out.println("main.do 수행중 문제 발생");
             }
         }
+        else if(command.equals("categoryBoard")){
+            try{
+//                forward = new controller.BoardCategoryAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("main.do 수행중 문제 발생");
+            }
+        }
+        else if(command.equals(""))
         // 만약 forward 가 null 이라면 null pointer exception 이 발생하기 떄문에 대비
         if(forward!=null){
             if(forward.isRedirect()){

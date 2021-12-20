@@ -6,7 +6,7 @@
 <!-- 모든 .do 에 대하여 front controller 로 향하도록 함-->
     <servlet>
         <servlet-name>fc</servlet-name>
-        <servlet-class>controller.FrontController</servlet-class>
+        <servlet-class>controller.board.FrontController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>fc</servlet-name>
