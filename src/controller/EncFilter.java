@@ -18,7 +18,7 @@ public class EncFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         request.setCharacterEncoding(encoding);
         response.setCharacterEncoding(encoding);
-
+        System.out.println("필터 진행 완료 ");
         chain.doFilter(request,response);
     }
 }

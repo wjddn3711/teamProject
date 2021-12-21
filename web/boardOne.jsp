@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <mytag:icon />
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -69,11 +69,11 @@
         <div style="padding:40px;">
             <h4>연어회덮밥${boardList.board_title}</h4>
             <p style="align:right;">추천 수 : 222${boardList.board_like}</p>
-            <button class="btn button-xs button-like" onclick="location.href='updateBoard.do&board_number=${boardList.board_number}'">나도 추천!</button><br>
+            <button class="btn button-xs button-like" onclick="location.href='updateBoard.do&board_number=${boardList.board_number}'">나도 추천!</button><br> <!-- 좋아요 누르면 버튼 변경 -->
             <hr>
             <p style="color:black; font-size:18px;">신선한 연어회가 그릇을 가득 덮고 양파가 향을 잡아주는 연어회덮밥.${boardList.board_content}</p>
             <hr>
-            <p>글 번호 : 글번호${boardList.board_number}</p><p style="align:right;">!!이름${boardList.customer_name}&nbsp;&nbsp;2012.3.22${boardList.board_date}</p>
+            <p>글 번호 : 글번호${boardList.board_number}</p><p style="align:right;">이름${boardList.customer_name}&nbsp;&nbsp;2012.3.22${boardList.board_date}</p>
         </div>
     </section>
 
@@ -84,7 +84,7 @@
 <div class="snackbars" id="form-output-global"></div>
 <!-- Javascript-->
 <script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
+<script src="js/script.js"></script>nmnm
 <!-- coded by 마른오징어-->
 </body>
 </html>

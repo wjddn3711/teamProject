@@ -77,12 +77,8 @@
                 </colgroup>
                 <tr>
                     <th colspan="4">
-                        <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='insert.do'">나도 신청하기</button>
+                        <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='#'">나도 신청하기</button>
                         <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="4">
                         <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
                             <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
                             <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;
@@ -95,7 +91,7 @@
                 </tr>
                 <c:forEach var="v" items="${boardList}" >
                     <tr>
-                        <td>${v.board_like}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
+                        <td>${v.board_fav}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
                     </tr>
                 </c:forEach>
                 <tr>

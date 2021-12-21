@@ -8,8 +8,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "FrontController", value = "/FrontController")
-public class FrontController extends HttpServlet {
+@WebServlet(name = "BoardFrontController", value = "/BoardFrontController")
+public class BoardFrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         actionDO(request,response);
@@ -37,14 +37,46 @@ public class FrontController extends HttpServlet {
                 System.out.println("main.do 수행중 문제 발생");
             }
         }
-        else if(command.equals("categoryBoard")){
+        // 상품 신청하기 메인
+        else if(command.equals("boardList")){
             try{
-//                forward = new controller.BoardCategoryAction().execute(request, response);
+                forward = new BoardListAction().execute(request, response);
             } catch (Exception e){
-                System.out.println("main.do 수행중 문제 발생");
+                System.out.println("boardList.do 수행중 문제 발생");
             }
         }
-        else if(command.equals(""))
+        // 최신순, 좋아요순, 내글보기 버튼 클릭시 수행 액션
+        else if(command.equals("categoryBoard")){
+            try{
+                forward = new BoardCategoryAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("category.do 수행중 문제 발생");
+            }
+        }
+        // 좋아요 버튼 클릭시 수행 액션
+        else if(command.equals("updateBoard.do")){
+            try{
+                forward = new BoardFavAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("updateBoard.do 수행중 문제 발생");
+            }
+        }
+        // 검색하기 버튼 클릭시 수행 액션
+        else if(command.equals("searchBoard.do")){
+            try{
+                forward = new BoardSearchAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("searchBoard.do 수행중 문제 발생");
+            }
+        }
+        // 상품 신청하기 클릭시 수행 액션
+        else if(command.equals("insertBoard.do")){
+            try{
+                forward = new BoardInsertAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("insertBoard.do 수행중 문제 발생");
+            }
+        }
         // 만약 forward 가 null 이라면 null pointer exception 이 발생하기 떄문에 대비
         if(forward!=null){
             if(forward.isRedirect()){

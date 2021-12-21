@@ -5,11 +5,11 @@
          version="4.0">
 <!-- 모든 .do 에 대하여 front controller 로 향하도록 함-->
     <servlet>
-        <servlet-name>fc</servlet-name>
-        <servlet-class>controller.board.FrontController</servlet-class>
+        <servlet-name>bfc</servlet-name>
+        <servlet-class>controller.board.BoardFrontController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>fc</servlet-name>
+        <servlet-name>bfc</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
@@ -18,9 +18,6 @@
         <param-name>encoding</param-name>
         <param-value>UTF-8</param-value>
     </context-param>
-
-
-
 
 
     <display-name>Apache-Axis</display-name>

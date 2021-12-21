@@ -20,10 +20,13 @@ public class BoardListAction implements Action {
         BoardDAO dao = new BoardDAO();
         ArrayList<BoardVO> boardList = dao.selectAll(); // dao 에서 조회된 데이터들을 받아옴
         request.setAttribute("boardList", boardList);
-
+        for (BoardVO boardVO : boardList) {
+            System.out.println(boardVO);
+        }
+        System.out.println(boardList.size());
         // Action 값 지정
         ActionForward forward = new ActionForward();
-        forward.setPath("board.jsp");
+        forward.setPath("boardList.jsp");
         forward.setRedirect(false); // dao로 부터 받은 리스트를 넘겨줘야하기 때문에 forward
 
         return forward;

@@ -26,7 +26,7 @@ public class BoardCategoryAction implements Action {
             ArrayList<BoardVO> boardList= dao.selectMine(vo);
             request.setAttribute("boardList",boardList);
 
-            forward.setPath("board.jsp");
+            forward.setPath("boardList.jsp");
             forward.setRedirect(false); // 보내야할 데이터가 있기때문에 forward
         }
         else if(category.equals("recent")){
@@ -39,7 +39,7 @@ public class BoardCategoryAction implements Action {
             ArrayList<BoardVO> boardList = dao.selectFav();
             request.setAttribute("boardList",boardList);
 
-            forward.setPath("board.jsp");
+            forward.setPath("boardList.jsp");
             forward.setRedirect(false); // 좋아요 순으로 정렬된 데이터를 보내줘야 하기때문에 forward
         }
         return forward; // 최종적으로 forward 를 반환한다

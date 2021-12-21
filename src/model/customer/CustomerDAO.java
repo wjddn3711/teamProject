@@ -14,9 +14,9 @@ public class CustomerDAO {
     ResultSet rs;
     int check;
 
-    String sql_insert = "insert into customer values((select nvl(max(customer_number),0)+1 from customer),?,?,?,?,?,?)";
+    String sql_insert = "insert into customer values(?,?,?,?,?,?)";
     String sql_id_check = "select customer_id from customer where customer_id=?";
-    String sql_selectOne="select * from customer where customer_number=?";
+    String sql_selectOne="select * from customer where getCustomer_id=?";
     String sql_update = "update customer set customer_id=?,customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=?";
     String sql_delete = "delete from customer where customer_id=? and customer_password=?";
     String sql_login_check = "select customer_password from customer where customer_id=?";

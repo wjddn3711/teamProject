@@ -45,6 +45,7 @@ public class BoardDAO {
                 vo.setBoard_title(rs.getString("board_title"));
                 vo.setBoard_content(rs.getString("board_content"));
                 vo.setBoard_fav(rs.getInt("board_fav"));
+                System.out.println("dao : "+vo);
                 datas.add(vo);
             }
         } catch (SQLException e) {
@@ -62,8 +63,8 @@ public class BoardDAO {
 
         try {
             pstmt = conn.prepareStatement(sql_selectSearch);
-            pstmt.setString(1,"keyword");
-            pstmt.setString(2,"keyword");
+            pstmt.setString(1,keyword);
+            pstmt.setString(2,keyword);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 BoardVO vo = new BoardVO();
