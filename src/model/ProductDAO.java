@@ -11,7 +11,7 @@ public class ProductDAO {
     Connection conn=null;
     PreparedStatement pstmt=null;
     ResultSet rs = null;
-    String sql_insert = "insert into product(product_name, product_price, product_type, details, product_image) values(?,?,?,?,?)";
+    String sql_insert = "insert into product values(?,?,?,?,?)";
     String sql_delete = "delete from product";
     String sql_select = "select * from product";
     public ArrayList<ProductVO> selectAll(){

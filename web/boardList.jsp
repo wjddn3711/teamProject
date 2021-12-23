@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/wrgaksy.ico" type="image/x-icon">
+    <mytag:icon />
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -70,15 +70,19 @@
         <div class="tableWrapper">
             <table style="min-width:300px; padding-left:60px; padding-right:60px;">
                 <colgroup>
-                    <col style="width:13%;" />
-                    <col style="width:60%;" />
-                    <col style="width:15%;" />
-                    <col style="width:12%;" />
+                    <col style="width:20%;" />
+                    <col style="width:40%;" />
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
                 </colgroup>
                 <tr>
                     <th colspan="4">
-                        <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='#'">나도 신청하기</button>
+                        <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='boardRequest.jsp'">나도 신청하기</button>
                         <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4">
                         <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
                             <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
                             <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;
@@ -95,11 +99,9 @@
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td>{v.board_like}</td><td>{v.board_title}</td><td>{v.customer_id}</td><td>{v.board_date}</td>
+                    <td>${v.board_like}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
                 </tr>
-                <tr>
-                    <td>{v.board_like}</td><td>{v.board_title}</td><td>{v.customer_id}</td><td>{v.board_date}</td>
-                </tr>
+
             </table>
         </div>
     </section>
