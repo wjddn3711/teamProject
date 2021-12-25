@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class BoardInsertAction implements Action {
     @Override
@@ -28,6 +29,11 @@ public class BoardInsertAction implements Action {
             forward.setRedirect(true);
         }
         // 아니라면 에러
+        else{
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter(); // 스크립트 printwriter
+            out.println("<script>alert('신청 실패 !');history.go(-1);</script>");
+        }
         return forward;
     }
 }

@@ -25,9 +25,9 @@ public class LogInAction implements Action {
             HttpSession session = request.getSession(); // spring 식 session 을 받는법
             session.setAttribute("customer_id",data.getCustomer_id());
             session.setAttribute("customer_name",data.getCustomer_name()); // "000님 환영합니다"에 쓰임
-            forward = new ActionForward(); // 만약 로그인 되었다면 forward 되도록
-            forward.setPath("main.do"); // 메인으로 복귀 ( 아이디와 이름을 세션에 들고 )
-            forward.setRedirect(false); // session 데이터이기 때문에 false로
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter(); // 스크립트 printwriter
+            out.println("<script>history.go(-1);</script>");
         }
         else{
             response.setContentType("text/html; charset=UTF-8");

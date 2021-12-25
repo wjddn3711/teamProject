@@ -27,5 +27,6 @@
     <orderEntry type="library" name="annotations-api" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="jsoup-1.14.3" level="project" />
+    <orderEntry type="library" name="tomcat.servlet" level="project" />
   </component>
 </module>

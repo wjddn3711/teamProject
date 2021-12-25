@@ -12,10 +12,6 @@ import java.util.ArrayList;
 public class MainAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductDAO dao = new ProductDAO();
-        ArrayList<ProductVO> datas = dao.selectAll();
-        request.setAttribute("datas", datas);
-
         ActionForward forward = new ActionForward();
         forward.setPath("main.jsp");
         forward.setRedirect(false);
