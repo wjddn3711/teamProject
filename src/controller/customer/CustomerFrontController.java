@@ -84,7 +84,6 @@ public class CustomerFrontController extends HttpServlet {
                 System.out.println("deleteUser.do 수행중 문제 발생");
             }
         }
-        else if(command.equals(""))
         // 만약 forward 가 null 이라면 null pointer exception 이 발생하기 떄문에 대비
         if(forward!=null){
             if(forward.isRedirect()){

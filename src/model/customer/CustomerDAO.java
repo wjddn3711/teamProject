@@ -16,7 +16,7 @@ public class CustomerDAO {
 
     String sql_insert = "insert into customer values(?,?,?,?,?,?)";
     String sql_id_check = "select customer_id from customer where customer_id=?";
-    String sql_selectOne="select * from customer where getCustomer_id=?";
+    String sql_selectOne="select * from customer where customer_id=?";
     String sql_update = "update customer set customer_id=?,customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=?";
     String sql_delete = "delete from customer where customer_id=? and customer_password=?";
     String sql_login_check = "select customer_password from customer where customer_id=?";
@@ -51,10 +51,10 @@ public class CustomerDAO {
             pstmt.setString(1, vo.getCustomer_id());
             rs = pstmt.executeQuery();
 
-            if (rs.next()) {
-                check = 1; // 같은 아이디 있음
+            if (rs.next()) { // 이미 존재하거나 아이디가 공백일때
+                check = 0; // 같은 아이디 있음
             } else {
-                check = 0; // 같은 아이디 없음
+                check = 1; // 같은 아이디 없음
             }
             rs.close();
         } catch (Exception e) {
@@ -101,7 +101,7 @@ public class CustomerDAO {
         try {
             conn=JDBCUtil.connect();
             pstmt=conn.prepareStatement(sql_selectOne);
-            pstmt.setInt(1, vo.getCustomer_number());
+            pstmt.setString(1, vo.getCustomer_id());
             ResultSet rs=pstmt.executeQuery();
             if(rs.next()) {
                 data=new CustomerVO();

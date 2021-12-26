@@ -67,7 +67,7 @@
     <section class="body">
         <h3>로그인</h3>
         <div class="loginbox">
-            <form action="login.do" method="post">
+            <form action="login.me" method="post">
                 <table style="align:center;">
                     <tr>
                         <td>아이디</td>

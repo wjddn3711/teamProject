@@ -21,7 +21,7 @@ public class LogInAction implements Action {
         vo.setCustomer_id(request.getParameter("customer_id"));
         vo.setCustomer_password(request.getParameter("customer_password"));
         CustomerVO data = dao.selectOne(vo);
-        if(data==null){ // 만약 아이디, 비밀번호가 동일하다면
+        if(data!=null){ // 만약 아이디, 비밀번호가 동일하다면
             HttpSession session = request.getSession(); // spring 식 session 을 받는법
             session.setAttribute("customer_id",data.getCustomer_id());
             session.setAttribute("customer_name",data.getCustomer_name()); // "000님 환영합니다"에 쓰임

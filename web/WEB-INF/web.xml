@@ -13,6 +13,15 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>mfc</servlet-name>
+        <servlet-class>controller.customer.CustomerFrontController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mfc</servlet-name>
+        <url-pattern>*.me</url-pattern>
+    </servlet-mapping>
+
     <!--    init parameter 로 encoding 을 UTF-8 로 설정 -->
     <context-param>
         <param-name>encoding</param-name>

@@ -67,46 +67,123 @@
   <section class="body">
     <h3>회원가입</h3>
     <div class="tableWrapper">
-      <form action="newMember.do" method="post">
+      <form action="new.me" method="post" id="signUpForm">
         <table>
           <tr>
             <td>이름</td>
-            <td><input name="customer_name" type="text" placeholder="이름"></td>
+            <td><input name="customer_name" type="text" placeholder="이름" required></td>
             <td></td>
           </tr>
           <tr>
             <td>아이디</td>
-            <td><input type="text" placeholder="아이디"></td>
-            <td><a class="btn button-xs button-like" href="#">중복확인</a></td>
+            <td><input type="text" name="customer_id" class="input_id" placeholder="아이디" required></td>
+<%--            <td><button class="btn button-xs button-like idck">중복확인</button></td>--%>
+            <td><font id="checkId"></font></td>
           </tr>
           <tr>
             <td>비밀번호</td>
-            <td><input type="password" placeholder="비밀번호는 안전하게"></td>
+            <td><input type="password" id="pw1" name="customer_password" placeholder="비밀번호는 안전하게" required></td>
             <td></td>
           </tr>
           <tr>
             <td>비밀번호 확인</td>
-            <td><input type="password"></td>
-            <td></td>
+            <td><input type="password" id="pw2" class="pwcheck" name="password_check" required></td>
+              <td><font id="checkPw"></font></td>
           </tr>
           <tr>
             <td rowspan="2">주소</td>
-            <td><input name="ZIP_code" type="text" id="sample4_postcode" placeholder="우편번호"></td>
+            <td><input name="ZIP_code" type="text" id="sample4_postcode" placeholder="우편번호" required></td>
             <td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><mytag:postcode /></td>
           </tr>
           <tr>
-            <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress" placeholder="상세주소"></td>
+            <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress" placeholder="상세주소" required></td>
           </tr>
           <tr>
             <td>핸드폰 번호</td>
-            <td><input name="phone_number" type="text" placeholder="eg.) 01012341234"></td>
+            <td><input name="phone_number" type="text" placeholder="eg.) 01012341234" required></td>
             <td></td>
           </tr>
           <tr style="border-bottom:none;">
-            <td colspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">가입하기!</button></td>
+            <td colspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post" disabled="disabled">가입하기!</button></td>
           </tr>
         </table>
       </form>
+<%--        아이디 확인 스크립트 --%>
+      <script src="js/jquery-3.6.0.min.js"></script>
+      <script>
+          let idChecked=false; // 중복 확인을 거쳤는지 확인
+            $("input[name='customer_id']").keyup(function() { // 아이디를 입력할때 마다 중복검사 실행
+              checkId($(this).val())
+            })
+            function checkId(id) {
+                if (id == "") {
+                    $("#checkId").text("");
+                    return; // 만약 아이디 입력란이 공백일 경우 중복확인 문구 X
+                }
+
+                $.ajax({
+                    url: "idCheck.me",
+                    type: "post",
+                    async: true,
+                    data: {id: id},
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result == "0") {
+                            $("#checkId").html('시용할 수 없는 아이디입니다.');
+                            $("#checkId").attr('color', 'red');
+                            idChecked = false; // id체크 true
+                        } else {
+                            $("#checkId").html('사용 가능한 아이디입니다.');
+                            $("#checkId").attr('color', 'green');
+                            idChecked = true;
+                        }
+                    },
+                    error: function () {
+                        alert("서버요청실패");
+                    }
+                })
+                setAble();
+            }
+      </script>
+<%--        비밀 번호 확인 스크립트 --%>
+        <script>
+            let pwChecked=false;
+            $(".pwcheck").focusout(function() { // 아이디를 입력할때 마다 중복검사 실행
+                checkPw($(this).val())
+            })
+            function checkPw(pw){
+              if(pw==""){
+                  $("#checkId").text("");
+                  return; // 아직 입력된 상태가 아니라면 아무런 문구를 출력하지 않는다
+              }
+
+              if($('#pw1').val()!=$('#pw2').val()){
+                  // 만약 pw1과 pw2가 알치하지 않는다면
+                  $("#checkPw").html('비밀번호가 일치하지 않습니다'); // 문구 출력
+                  $("#checkPw").attr('color', 'red');
+                  $('#pw2').val(''); // 값을 비움
+                  $('#pw2').focus(); // 포인터를 pw2 로 맞춘다
+                  pwChecked=false;
+              }
+              else{
+                  $("#checkPw").html('비밀번호가 일치합니다'); // 문구 출력
+                  $("#checkPw").attr('color', 'green');
+                  pwChecked=true;
+              }
+              setAble();
+            }
+      </script>
+        <script>
+            function setAble(){
+                console.log("idChecked : "+idChecked+"\npwChecked : "+pwChecked);
+                if(idChecked && pwChecked){
+                    // 만약 아이디와 비밀번호의 유효성 검사를 마쳤다면
+                    $("button[type=submit]").removeAttr("disabled");
+                }else{
+                    $("button[type=submit]").attr("disabled","disabled"); // 유효성 검사 실시하지 않았다면 button이 눌려지지 않도록
+                }
+            }
+        </script>
     </div>
   </section>
 
@@ -118,6 +195,7 @@
 <!-- Javascript-->
 <script src="js/core.min.js"></script>
 <script src="js/script.js"></script>
+
 <!-- coded by 마른오징어-->
 </body>
 </html>
