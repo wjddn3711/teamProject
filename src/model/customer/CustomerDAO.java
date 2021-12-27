@@ -19,7 +19,7 @@ public class CustomerDAO {
     String sql_selectOne="select * from customer where customer_id=?";
     String sql_update = "update customer set customer_id=?,customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=?";
     String sql_delete = "delete from customer where customer_id=? and customer_password=?";
-    String sql_login_check = "select customer_password from customer where customer_id=?";
+    String sql_login_check = "select * from customer where customer_id=?";
 
     // 회원가입(c)
     public boolean insert(CustomerVO vo) {
@@ -67,7 +67,8 @@ public class CustomerDAO {
     }
 
     // 로그인체크
-    public int login_check(CustomerVO vo) {
+    public CustomerVO login_check(CustomerVO vo) {
+        CustomerVO data = null;
         try {
             conn = JDBCUtil.connect();
             pstmt = conn.prepareStatement(sql_login_check);
@@ -78,12 +79,10 @@ public class CustomerDAO {
 
             if (rs.next()) {
                 if (vo.getCustomer_password().equals(rs.getString("customer_password"))) {
-                    check = 1; // 아이디와 패스워드 일치
-                } else {
-                    check = -1; // 패스워드 틀림
+                    data = new CustomerVO();
+                    data.setCustomer_id(rs.getString("customer_id"));
+                    data.setCustomer_name(rs.getString("customer_name"));
                 }
-            } else {
-                check = 0; // 아이디 없음
             }
             rs.close();
         } catch (Exception e) {
@@ -92,7 +91,7 @@ public class CustomerDAO {
         } finally {
             JDBCUtil.disconnect(pstmt, conn);
         }
-        return check;
+        return data;
     }
 
     // 회원정보조회(r)

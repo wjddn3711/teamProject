@@ -108,43 +108,43 @@
           </tr>
         </table>
       </form>
-<%--        아이디 확인 스크립트 --%>
-      <script src="js/jquery-3.6.0.min.js"></script>
-      <script>
-          let idChecked=false; // 중복 확인을 거쳤는지 확인
-            $("input[name='customer_id']").keyup(function() { // 아이디를 입력할때 마다 중복검사 실행
-              checkId($(this).val())
-            })
-            function checkId(id) {
-                if (id == "") {
-                    $("#checkId").text("");
-                    return; // 만약 아이디 입력란이 공백일 경우 중복확인 문구 X
-                }
-
-                $.ajax({
-                    url: "idCheck.me",
-                    type: "post",
-                    async: true,
-                    data: {id: id},
-                    dataType: 'json',
-                    success: function (result) {
-                        if (result == "0") {
-                            $("#checkId").html('시용할 수 없는 아이디입니다.');
-                            $("#checkId").attr('color', 'red');
-                            idChecked = false; // id체크 true
-                        } else {
-                            $("#checkId").html('사용 가능한 아이디입니다.');
-                            $("#checkId").attr('color', 'green');
-                            idChecked = true;
-                        }
-                    },
-                    error: function () {
-                        alert("서버요청실패");
-                    }
+    <%--        아이디 확인 스크립트 --%>
+          <script src="js/jquery-3.6.0.min.js"></script>
+          <script>
+              let idChecked=false; // 중복 확인을 거쳤는지 확인
+                $("input[name='customer_id']").keyup(function() { // 아이디를 입력할때 마다 중복검사 실행
+                  checkId($(this).val())
                 })
-                setAble();
-            }
-      </script>
+                function checkId(id) {
+                    if (id == "") {
+                        $("#checkId").text("");
+                        return; // 만약 아이디 입력란이 공백일 경우 중복확인 문구 X
+                    }
+
+                    $.ajax({
+                        url: "idCheck.me",
+                        type: "post",
+                        async: true,
+                        data: {id: id},
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result == "0") {
+                                $("#checkId").html('시용할 수 없는 아이디입니다.');
+                                $("#checkId").attr('color', 'red');
+                                idChecked = false; // id체크 true
+                            } else {
+                                $("#checkId").html('사용 가능한 아이디입니다.');
+                                $("#checkId").attr('color', 'green');
+                                idChecked = true;
+                            }
+                        },
+                        error: function () {
+                            alert("서버요청실패");
+                        }
+                    })
+                    setAble();
+                }
+          </script>
 <%--        비밀 번호 확인 스크립트 --%>
         <script>
             let pwChecked=false;
