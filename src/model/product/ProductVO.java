@@ -5,7 +5,16 @@ public class ProductVO {
     private String product_name;
     private int product_price;
     private String product_type;
-    private String product_details;
+    private String details;
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
     private String product_image;
 
     public void setProduct_image(String product_image) {
@@ -23,7 +32,6 @@ public class ProductVO {
                 ", product_name='" + product_name + '\'' +
                 ", product_price=" + product_price +
                 ", product_type='" + product_type + '\'' +
-                ", product_details='" + product_details + '\'' +
                 ", product_image='" + product_image + '\'' +
                 '}';
     }
@@ -44,9 +52,6 @@ public class ProductVO {
         this.product_type = product_type;
     }
 
-    public void setProduct_details(String product_details) {
-        this.product_details = product_details;
-    }
 
     public int getProduct_number() {
         return product_number;
@@ -64,7 +69,4 @@ public class ProductVO {
         return product_type;
     }
 
-    public String getProduct_details() {
-        return product_details;
-    }
 }

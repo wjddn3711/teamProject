@@ -34,7 +34,7 @@ public class InitDataContructor {
             vo.setProduct_name(mainName.get(i));
             vo.setProduct_price(mainPrice.get(i));
             vo.setProduct_image(mainImg.get(i));
-            vo.setProduct_details(mainDetail.get(i));
+            vo.setDetails(mainDetail.get(i));
             vo.setProduct_type("메인");
             mainData.add(vo);
         }
@@ -55,7 +55,7 @@ public class InitDataContructor {
             vo.setProduct_name(soupName.get(i));
             vo.setProduct_price(soupPrice.get(i));
             vo.setProduct_image(soupImg.get(i));
-            vo.setProduct_details(soupDetail.get(i));
+            vo.setDetails(soupDetail.get(i));
             vo.setProduct_type("국");
             soupData.add(vo);
         }
@@ -74,7 +74,7 @@ public class InitDataContructor {
             vo.setProduct_name(seasonedSideDishName.get(i));
             vo.setProduct_price(seasonedSideDishPrice.get(i));
             vo.setProduct_image(seasonedSideDishImg.get(i));
-            vo.setProduct_details(seasonedSideDishDetail.get(i));
+            vo.setDetails(seasonedSideDishDetail.get(i));
             vo.setProduct_type("반찬");
             seasonedSideDishData.add(vo);
         }
@@ -91,7 +91,7 @@ public class InitDataContructor {
             vo.setProduct_name(friedSideDishName.get(i));
             vo.setProduct_price(friedSideDishPrice.get(i));
             vo.setProduct_image(friedSideDishImg.get(i));
-            vo.setProduct_details(friedSideDishDetail.get(i));
+            vo.setDetails(friedSideDishDetail.get(i));
             vo.setProduct_type("반찬");
             friedSideDishData.add(vo);
         }
@@ -108,7 +108,7 @@ public class InitDataContructor {
             vo.setProduct_name(braisedSideDishName.get(i));
             vo.setProduct_price(braisedSideDishPrice.get(i));
             vo.setProduct_image(braisedSideDishImg.get(i));
-            vo.setProduct_details(braisedSideDishDetail.get(i));
+            vo.setDetails(braisedSideDishDetail.get(i));
             vo.setProduct_type("반찬");
             braisedSideDishData.add(vo);
         }

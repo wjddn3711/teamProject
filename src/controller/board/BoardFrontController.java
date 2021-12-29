@@ -54,7 +54,7 @@ public class BoardFrontController extends HttpServlet {
             }
         }
         // 좋아요 버튼 클릭시 수행 액션
-        else if(command.equals("updateBoard.do")){
+        else if(command.equals("updateBoard")){
             try{
                 forward = new BoardFavAction().execute(request, response);
             } catch (Exception e){
@@ -62,7 +62,7 @@ public class BoardFrontController extends HttpServlet {
             }
         }
         // 검색하기 버튼 클릭시 수행 액션
-        else if(command.equals("searchBoard.do")){
+        else if(command.equals("searchBoard")){
             try{
                 forward = new BoardSearchAction().execute(request, response);
             } catch (Exception e){
@@ -70,13 +70,14 @@ public class BoardFrontController extends HttpServlet {
             }
         }
         // 상품 신청하기 클릭시 수행 액션
-        else if(command.equals("insertBoard.do")){
+        else if(command.equals("insertBoard")){
             try{
                 forward = new BoardInsertAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("insertBoard.do 수행중 문제 발생");
             }
         }
+
         // 만약 forward 가 null 이라면 null pointer exception 이 발생하기 떄문에 대비
         if(forward!=null){
             if(forward.isRedirect()){
@@ -87,60 +88,6 @@ public class BoardFrontController extends HttpServlet {
                 dispatcher.forward(request,response);
             }
         }
-//        if(command.equals("boardList")){ // 상품게시판 메인화면
-//            System.out.println("boardList 명령");
-//            // 현재 만들어진 게시판을 ArrayList 로 반환 받는다
-//            try{
-//                ActionForward forward = new BoardListAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardList 수행중 오류 발생!");
-//            }
-//        }
-//        else if(command.equals("searchBoard")){
-//            System.out.println("search 상품 신청 게시판");
-//            try{
-//                ActionForward forward = new BoardSearchAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardSearch 수행중 오류 발생!");
-//            }
-//        }
-//        else if(command.equals("insertBoard")){
-//            System.out.println("insert 상품 신청 게시판");
-//            try{
-//                ActionForward forward = new BoardInsertAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardInsert 수행중 오류 발생!");
-//            }
-//        }
-//        else if(command.equals("deleteBoard")){
-//            System.out.println("delete 상품 신청 게시판");
-//            try{
-//                ActionForward forward = new BoardDeleteAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardDelete 수행중 오류 발생!");
-//            }
-//        }
-//        else if(command.equals("updateBoard")){
-//            System.out.println("update 상품 신청 게시판");
-//            try{
-//                ActionForward forward = new BoardFavAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardSearch 수행중 오류 발생!");
-//            }
-//        }
-//        else if(command.equals("categoryBoard")){
-//            System.out.println("category 상품 신청 게시판");
-//            try{
-//                ActionForward forward = new BoardCategoryAction().execute(request, response);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//                System.out.println("boardCategory 수행중 오류 발생!");
-//            }
-//        }
+
     }
 }

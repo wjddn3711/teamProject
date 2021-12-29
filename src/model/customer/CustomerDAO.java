@@ -17,7 +17,7 @@ public class CustomerDAO {
     String sql_insert = "insert into customer values(?,?,?,?,?,?)";
     String sql_id_check = "select customer_id from customer where customer_id=?";
     String sql_selectOne="select * from customer where customer_id=?";
-    String sql_update = "update customer set customer_id=?,customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=?";
+    String sql_update = "update customer set customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=? where customer_id=?";
     String sql_delete = "delete from customer where customer_id=? and customer_password=?";
     String sql_login_check = "select * from customer where customer_id=?";
 
@@ -126,12 +126,12 @@ public class CustomerDAO {
         try {
             conn = JDBCUtil.connect();
             pstmt = conn.prepareStatement(sql_update);
-            pstmt.setString(1, vo.getCustomer_id());
-            pstmt.setString(2, vo.getCustomer_password());
-            pstmt.setString(3, vo.getCustomer_name());
-            pstmt.setInt(4, vo.getPhone_number());
-            pstmt.setInt(5, vo.getZIP_code());
-            pstmt.setString(6, vo.getDetailed_address());
+            pstmt.setString(6, vo.getCustomer_id());
+            pstmt.setString(1, vo.getCustomer_password());
+            pstmt.setString(2, vo.getCustomer_name());
+            pstmt.setInt(3, vo.getPhone_number());
+            pstmt.setInt(4, vo.getZIP_code());
+            pstmt.setString(5, vo.getDetailed_address());
             check = pstmt.executeUpdate();
         } catch (Exception e) {
             System.out.println("정보 수정 문제발생");

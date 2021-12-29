@@ -3,12 +3,16 @@ import controller.Action;
 import controller.ActionForward;
 import model.customer.CustomerDAO;
 import model.customer.CustomerVO;
+import model.subscription.Order_subscriptionVO;
+import model.subscription.Order_suscriptionDAO;
+import model.subscription.Product_setVO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MyPageAction implements Action{
     @Override
@@ -26,12 +30,21 @@ public class MyPageAction implements Action{
         HttpSession session = request.getSession();
         String customer_id = (String) session.getAttribute("customer_id");
         CustomerDAO customerDAO = new CustomerDAO();
-        CustomerVO vo = new CustomerVO();
-        vo.setCustomer_id(customer_id);
-        CustomerVO userData = customerDAO.selectOne(vo); // 유저 데이터를 받아옴
+        CustomerVO cvo = new CustomerVO();
+        cvo.setCustomer_id(customer_id);
+        CustomerVO userData = customerDAO.selectOne(cvo); // 유저 데이터를 받아옴
+        // 유저 데이터 저장
         request.setAttribute("userData", userData);
-        // 현재 order_subscription 구독 DAO 가 완료 되지 않아 아직 못넘겨줌
-        System.out.println("유저데이터는:"+userData);
+        // 유저 구독 정보 저장
+        Order_suscriptionDAO odao = new Order_suscriptionDAO();
+        Order_subscriptionVO ovo = new Order_subscriptionVO();
+        ovo.setCustomer_id(customer_id);
+        Order_subscriptionVO order = odao.selectOne(ovo);
+        Product_setVO product_set = odao.selectProductSet(order);
+        request.setAttribute("order",order);
+        request.setAttribute("product_set",product_set);
+        System.out.println("유저 order : "+product_set);
+
         forward.setPath("mypage.jsp");
         forward.setRedirect(false);
         return forward;

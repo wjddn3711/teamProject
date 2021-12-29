@@ -16,8 +16,40 @@ public class ProductDAO {
     String sql_selectAll = "select * from product";
     String sql_selectOne = "select * from product where product_number=?";
     String sql_selectMain = "select * from product where product_type='메인'";
-    String sql_selectSide = "select * from product where product_type='국'";
-    String sql_selectSoup = "select * from product where product_type='반찬'";
+    String sql_selectSide = "select * from product where product_type='반찬'";
+    String sql_selectSoup = "select * from product where product_type='국'";
+    String sql_selectSearch = "select * from product where product_name like ? or details like ? or product_type like ?";
+
+    public ArrayList<ProductVO> selectSearch(String keyword) {
+        ArrayList<ProductVO> datas = new ArrayList<ProductVO>();
+        ProductVO vo = null; //초기 vo null 로
+        conn = JDBCUtil.connect();
+        try {
+            pstmt = conn.prepareStatement(sql_selectSearch);
+            pstmt.setString(1, "%"+keyword+"%");
+            pstmt.setString(2, "%"+keyword+"%");
+            pstmt.setString(3, "%"+keyword+"%");
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                vo = new ProductVO();
+                vo.setProduct_number(rs.getInt("product_number"));
+                vo.setProduct_name(rs.getString("product_name"));
+                vo.setProduct_price(rs.getInt("product_price"));
+                vo.setProduct_type(rs.getString("product_type"));
+                vo.setDetails(rs.getString("details"));
+                vo.setProduct_image(rs.getString("product_image"));
+                datas.add(vo);
+            }
+            rs.close();
+            return datas;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("product selectSearch 중 문제 발생");
+        }finally {
+            JDBCUtil.disconnect(pstmt,conn);
+        }
+        return null;
+    }
 
     public ArrayList<ProductVO> selectMain(){
         ArrayList<ProductVO> datas = new ArrayList<ProductVO>();
@@ -32,10 +64,9 @@ public class ProductDAO {
                 vo.setProduct_name(rs.getString("product_name"));
                 vo.setProduct_price(rs.getInt("product_price"));
                 vo.setProduct_type(rs.getString("product_type"));
-                vo.setProduct_details(rs.getString("details"));
+                vo.setDetails(rs.getString("details"));
                 vo.setProduct_image(rs.getString("product_image"));
                 datas.add(vo);
-                System.out.println(vo);
             }
             rs.close();
             return datas;
@@ -61,10 +92,9 @@ public class ProductDAO {
                 vo.setProduct_name(rs.getString("product_name"));
                 vo.setProduct_price(rs.getInt("product_price"));
                 vo.setProduct_type(rs.getString("product_type"));
-                vo.setProduct_details(rs.getString("details"));
+                vo.setDetails(rs.getString("details"));
                 vo.setProduct_image(rs.getString("product_image"));
                 datas.add(vo);
-                System.out.println(vo);
             }
             rs.close();
             return datas;
@@ -90,10 +120,9 @@ public class ProductDAO {
                 vo.setProduct_name(rs.getString("product_name"));
                 vo.setProduct_price(rs.getInt("product_price"));
                 vo.setProduct_type(rs.getString("product_type"));
-                vo.setProduct_details(rs.getString("details"));
+                vo.setDetails(rs.getString("details"));
                 vo.setProduct_image(rs.getString("product_image"));
                 datas.add(vo);
-                System.out.println(vo);
             }
             rs.close();
             return datas;
@@ -119,10 +148,9 @@ public class ProductDAO {
                 vo.setProduct_name(rs.getString("product_name"));
                 vo.setProduct_price(rs.getInt("product_price"));
                 vo.setProduct_type(rs.getString("product_type"));
-                vo.setProduct_details(rs.getString("details"));
+                vo.setDetails(rs.getString("details"));
                 vo.setProduct_image(rs.getString("product_image"));
                 datas.add(vo);
-                System.out.println(vo);
             }
             rs.close();
             return datas;
@@ -142,17 +170,16 @@ public class ProductDAO {
         try {
             pstmt = conn.prepareStatement(sql_selectOne);
             pstmt.setInt(1,data.getProduct_number());
-            if(rs.next()){ // 만약 해당 상품이 있다면
-                vo = new ProductVO();
-                vo.setProduct_number(rs.getInt("product_number"));
-                vo.setProduct_name(rs.getString("product_name"));
-                vo.setProduct_price(rs.getInt("product_price"));
-                vo.setProduct_type(rs.getString("product_type"));
-                vo.setProduct_details(rs.getString("details"));
-                vo.setProduct_image(rs.getString("product_image"));
-                return vo;
-            }
-            rs.close();
+            rs = pstmt.executeQuery();
+            rs.next();
+            vo = new ProductVO();
+            vo.setProduct_number(rs.getInt("product_number"));
+            vo.setProduct_name(rs.getString("product_name"));
+            vo.setProduct_price(rs.getInt("product_price"));
+            vo.setProduct_type(rs.getString("product_type"));
+            vo.setDetails(rs.getString("details"));
+            vo.setProduct_image(rs.getString("product_image"));
+            return vo;
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("product selectAll 중 문제 발생");
@@ -170,7 +197,7 @@ public class ProductDAO {
                 pstmt.setString(1,data.getProduct_name());
                 pstmt.setInt(2,data.getProduct_price());
                 pstmt.setString(3,data.getProduct_type());
-                pstmt.setString(4,data.getProduct_details());
+                pstmt.setString(4,data.getDetails());
                 pstmt.setString(5,data.getProduct_image());
                 pstmt.executeUpdate();
             }

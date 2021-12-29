@@ -1,7 +1,6 @@
 package model.customer;
 
 public class CustomerVO {
-    private int customer_number;
     private String customer_id;
     private String customer_password;
     private String customer_name;
@@ -9,12 +8,6 @@ public class CustomerVO {
     private int ZIP_code;
     private String detailed_address;
 
-    public int getCustomer_number() {
-        return customer_number;
-    }
-    public void setCustomer_number(int customer_number) {
-        this.customer_number = customer_number;
-    }
     public String getCustomer_id() {
         return customer_id;
     }
@@ -54,7 +47,7 @@ public class CustomerVO {
 
     @Override
     public String toString() {
-        return "CustomerVO [customer_number=" + customer_number + ", customer_id=" + customer_id
+        return "CustomerVO [customer_number="  + ", customer_id=" + customer_id
                 + ", customer_password=" + customer_password + ", customer_name=" + customer_name + ", phone_number="
                 + phone_number + ", ZIP_code=" + ZIP_code + ", detailed_address=" + detailed_address + "]";
     }

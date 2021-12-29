@@ -70,6 +70,13 @@ public class ProductFrontController extends HttpServlet {
                 System.out.println("productFilter 수행중 문제 발생");
             }
         }
+        else if(command.equals("productSearch")){
+            try{
+                forward = new ProductSearchAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("productSearch 수행중 문제 발생");
+            }
+        }
 
         if(forward!=null){
             if(forward.isRedirect()){

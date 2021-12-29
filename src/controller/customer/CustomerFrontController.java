@@ -91,6 +91,20 @@ public class CustomerFrontController extends HttpServlet {
                 System.out.println("mypageAction 수행중 문제 발생");
             }
         }
+//        else if(command.equals("myorder")){
+//            try{
+//                forward = new MyOrderAction().execute(request, response);
+//            } catch (Exception e){
+//                System.out.println("myorderAction 수행중 문제 발생");
+//            }
+//        }
+//        else if(command.equals("withdrawal")){
+//            try{
+//                forward = new WithdrawalAction().execute(request, response);
+//            } catch (Exception e){
+//                System.out.println("myorderAction 수행중 문제 발생");
+//            }
+//        }
         // 만약 forward 가 null 이라면 null pointer exception 이 발생하기 떄문에 대비
         if(forward!=null){
             if(forward.isRedirect()){
@@ -99,7 +113,6 @@ public class CustomerFrontController extends HttpServlet {
             else{
                 RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
                 dispatcher.forward(request,response);
-
             }
         }
     }

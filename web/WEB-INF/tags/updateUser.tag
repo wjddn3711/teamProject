@@ -9,7 +9,7 @@
             </tr>
             <tr>
                 <td>이름</td>
-                <td><input name="customer_name" type="text" placeholder="${customer_name}" required></td>
+                <td><input name="customer_name" type="text" placeholder="${customer_name}" ></td>
                 <td></td>
             </tr>
             <tr>
@@ -19,29 +19,29 @@
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td><input type="password" id="pw1"  name="customer_password" placeholder="비밀번호는 안전하게" required></td>
+                <td><input type="password" id="pw1"  name="customer_password" placeholder="비밀번호는 안전하게" ></td>
                 <td></td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
-                <td><input type="password" id="pw2" required class="pwcheck" name="password_check" required></td>
+                <td><input type="password" id="pw2"  class="pwcheck" name="password_check" ></td>
                 <td><font id="checkPw" ></font></td>
             </tr>
             <tr>
                 <td rowspan="2">주소</td>
-                <td><input name="ZIP_code" required type="text" id="sample4_postcode" placeholder="${userData.ZIP_code}"></td>
+                <td><input name="ZIP_CODE"  type="text" id="sample4_postcode" placeholder="${userData.ZIP_code}"></td>
                 <td><input type="button"  onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><mytag:postcode /></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress" required="required" placeholder="${userData.detailed_address}"></td>
+                <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress"  placeholder="${userData.detailed_address}"></td>
             </tr>
             <tr>
                 <td>핸드폰 번호</td>
-                <td><input name="phone_number" required type="text" placeholder="${userData.phone_number}"></td>
+                <td><input name="phone_number"  type="text" placeholder="${userData.phone_number}"></td>
                 <td></td>
             </tr>
             <tr>
-                <td colspan="3" align="center"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post" disabled="disabled">변경하기!</button></td>
+                <td colspan="3" align="center"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">변경하기!</button></td>
             </tr>
         </table>
     </form>
@@ -70,6 +70,5 @@
             $("#checkPw").attr('color', 'green');
             pwChecked=true;
         }
-        setAble();
     }
 </script>

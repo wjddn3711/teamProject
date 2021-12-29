@@ -30,9 +30,9 @@
         <!-- login form -->
         <section class="body">
             <h3>로그인</h3>
-            <div class="loginbox">
+            <div class="tableWrapper">
                 <form action="login.me" method="post">
-                    <table style="align:center;">
+                    <table>
                         <tr>
                             <td>아이디</td>
                             <td><input name="customer_id" type="text"></td>

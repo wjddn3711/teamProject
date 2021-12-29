@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ProductListAction implements Action{
-
+public class ProductSearchAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductDAO dao = new ProductDAO();
-        ArrayList<ProductVO> productList = dao.selectAll();
-
+        String keyword = request.getParameter("keyword");
+        System.out.println(keyword);
+        ArrayList<ProductVO> productList = dao.selectSearch(keyword);
         request.setAttribute("productList",productList);
-        // Action 값 지정
-        request.setAttribute("filter","All");
+
         ActionForward forward = new ActionForward();
         forward.setPath("productList.jsp");
-        forward.setRedirect(false); // dao로 부터 받은 리스트를 넘겨줘야하기 때문에 forward
-
+        forward.setRedirect(false); //forward 로 넘김
         return forward;
     }
 }

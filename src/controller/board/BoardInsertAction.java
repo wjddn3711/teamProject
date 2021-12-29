@@ -9,31 +9,26 @@ import model.board.BoardVO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class BoardInsertAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 게시글을 작성
+        ActionForward forward = new ActionForward();
+        HttpSession session = request.getSession();
+
         BoardDAO dao = new BoardDAO();
         BoardVO vo = new BoardVO();
-        ActionForward forward = null;
         // 작성자 아이디를 uid , 제목을 title, 내용을 content 라고 가정하고 진행
-        vo.setCustomer_id(request.getParameter("customer_id"));
+        vo.setCustomer_id((String) session.getAttribute("customer_id"));
         vo.setBoard_content(request.getParameter("board_content"));
         vo.setBoard_title(request.getParameter("board_title"));
-        if(dao.insert(vo)){
-            forward = new ActionForward();
-            forward.setPath("boardDone.jsp");
-            forward.setRedirect(true);
-        }
-        // 아니라면 에러
-        else{
-            response.setContentType("text/html; charset=UTF-8");
-            PrintWriter out = response.getWriter(); // 스크립트 printwriter
-            out.println("<script>alert('신청 실패 !');history.go(-1);</script>");
-        }
+        System.out.println("현재 vo: "+vo);
+        dao.insert(vo);
+        forward.setPath("boardDone.jsp");
+        forward.setRedirect(true);
         return forward;
     }
 }

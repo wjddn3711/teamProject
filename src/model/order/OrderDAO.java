@@ -20,8 +20,8 @@ public class OrderDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertS = "insert into order_single values ((select nvl(max(board_number),0)+1 from order_single),?,(select sysdate from dual)";
-	String sql_insertD = "insert into order_detail values((select nvl(max(board_number),0)+1 from order_detail),?,?,?)";
+	String sql_insertS = "insert into order_single values ((select nvl(max(single_number),0)+1 from order_single),?,(select sysdate from dual))";
+	String sql_insertD = "insert into order_detail values((select nvl(max(detail_number),0)+1 from order_detail),?,?,?)";
 	String sql_selectAll = "select * from order_single order by single_number desc";
 	String sql_selectSearch ="select * from order_single where single_number=?"; 
 	String sql_delete = "delete from order_single where single_number=?"; //order_detail 테이블과 제약조건으로 묶여있기 때문에 상세주문도 같이 삭제 

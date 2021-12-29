@@ -7,6 +7,7 @@ import model.customer.CustomerVO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,17 +17,24 @@ public class UpdateUserAction implements Action{
         ActionForward forward = null;
         CustomerDAO dao = new CustomerDAO();
         CustomerVO vo = new CustomerVO();
-        vo.setCustomer_id(request.getParameter("customer_id"));
+        // 기존 회원 정보 불러오기
+        HttpSession session = request.getSession();
+        vo.setCustomer_id((String) session.getAttribute("customer_id"));
         vo.setCustomer_name(request.getParameter("customer_name"));
         vo.setCustomer_password(request.getParameter("customer_password"));
         vo.setPhone_number(Integer.parseInt(request.getParameter("phone_number"))); // String 으로 바껴야 할것같음
         vo.setZIP_code(Integer.parseInt(request.getParameter("ZIP_CODE"))); // String 으로 (0 부터 시작할 경우 0 이 사라짐 처리할수가 없음)
         vo.setDetailed_address(request.getParameter("detailed_address"));
+        System.out.println(vo);
+        // 회원 구독 정보 불러오기
+
+
         int check = dao.update(vo);
         if(check==1){
+            session.setAttribute("customer_name", vo.getCustomer_name());
             forward = new ActionForward();
             // 업데이트 성공
-            forward.setPath("mypage.do");
+            forward.setPath("mypage.me");
             forward.setRedirect(true); // 넘겨야 할 데이터 없기때문에 true
         }
         else{ // 업데이트 실패시

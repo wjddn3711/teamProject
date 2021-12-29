@@ -24,10 +24,10 @@ public class BoardDAO {
     PreparedStatement pstmt = null;
 
     String sql_selectAll = "select * from board order by board_number desc";
-    String sql_selectSearch = "select * from board where board_title like '%?%' or board_content like '%?%' order by board_number desc";
+    String sql_selectSearch = "select * from board where board_title like ? or board_content like ? order by board_number desc";
     String sql_selectFav = "select * from board order by board_fav desc";
     String sql_selectMine = "select * from board where customer_id=? order by board_number desc";
-    String sql_insert = "insert into board values ((select nvl(max(board_number),0)+1 from board),?,(select sysdate from dual),?,?,0)";
+    String sql_insert = "insert into board(customer_id, board_date,board_title, board_content,board_fav) values (?,now(),?,?,0)";
     String sql_delete = "delete from board where board_number=?";
     String sql_update = "update board set board_fav = board_fav+1 where board_number=?";
 
@@ -63,8 +63,8 @@ public class BoardDAO {
 
         try {
             pstmt = conn.prepareStatement(sql_selectSearch);
-            pstmt.setString(1,keyword);
-            pstmt.setString(2,keyword);
+            pstmt.setString(1,"%"+keyword+"%");
+            pstmt.setString(2,"%"+keyword+"%");
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 BoardVO vo = new BoardVO();

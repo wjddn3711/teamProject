@@ -17,11 +17,11 @@ public class ProductCategoryAction implements Action{
         ActionForward forward = new ActionForward();
         String filter = request.getParameter("filter"); // view 로 부터 받아온 필터 값
         ProductDAO dao = new ProductDAO();
-
+        request.setAttribute("filter",filter);
+        System.out.println(filter);
         ArrayList<ProductVO> productList = new ArrayList<>();
         if(filter.equals("main")){
             productList= dao.selectMain();
-
         }
         else if(filter.equals("side")){
             productList= dao.selectSide();
@@ -32,6 +32,6 @@ public class ProductCategoryAction implements Action{
         request.setAttribute("productList", productList);
         forward.setPath("productList.jsp");
         forward.setRedirect(false); // 보내야할 데이터가 있기때문에 forward
-        return null;
+        return forward;
     }
 }
