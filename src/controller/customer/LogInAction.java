@@ -23,6 +23,7 @@ public class LogInAction implements Action {
         vo.setCustomer_id(customer_id);
         vo.setCustomer_password(customer_password);
         CustomerVO data = dao.login_check(vo);
+        System.out.println(data);
         if(data!=null){ // 만약 아이디, 비밀번호가 동일하다면
             HttpSession session = request.getSession(); // spring 식 session 을 받는법
             session.setAttribute("customer_id",data.getCustomer_id());

@@ -17,10 +17,10 @@ public class DeleteUserAction implements Action{
         ActionForward forward = null;
         CustomerDAO dao = new CustomerDAO();
         CustomerVO vo = new CustomerVO();
-        vo.setCustomer_id(request.getParameter("customer_id"));
+        HttpSession session = request.getSession();
+        vo.setCustomer_id((String) session.getAttribute("customer_id"));
         vo.setCustomer_password(request.getParameter("customer_password"));
         if(dao.delete(vo)){ // 회원 탈퇴가 정상적으로 되었다면
-            HttpSession session = request.getSession();
             session.invalidate(); // 세션에 남아있던 회원정보 지우기
             forward = new ActionForward();
             forward.setPath("main.do");
@@ -29,7 +29,7 @@ public class DeleteUserAction implements Action{
         else{ // 아이디에 해당하는 비밀번호가 일치하지 않을시
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter(); // 스크립트 printwriter
-            out.println("<script>alert('아이디 또는 비밀번호가 일치하지 않습니다');history.go(-1);</script>");
+            out.println("<script>alert('비밀번호가 일치하지 않습니다');history.go(-1);</script>");
         }
         return forward;
     }

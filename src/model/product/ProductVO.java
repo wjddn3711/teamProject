@@ -1,4 +1,4 @@
-package model;
+package model.product;
 
 public class ProductVO {
     private int product_number;

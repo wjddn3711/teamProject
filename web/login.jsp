@@ -19,86 +19,47 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-</head>
-<body>
-<div class="preloader">
-    <div class="wrapper-triangle">
-        <div class="pen">
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-            </div>
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
+    <mytag:preloader />
+    <div class="page">
 
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
+        <!-- Page Header-->
+        <mytag:pageHeader pageSector=" "/>
+
+        <!-- login form -->
+        <section class="body">
+            <h3>로그인</h3>
+            <div class="loginbox">
+                <form action="login.me" method="post">
+                    <table style="align:center;">
+                        <tr>
+                            <td>아이디</td>
+                            <td><input name="customer_id" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호</td>
+                            <td><input name="customer_password" type="password"></td>
+                        </tr>
+                        <tr style="padding:10px;">
+                            <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">로그인</button></td>
+                        </tr>
+                        <tr style="padding:10px;">
+                            <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" onclick="location.href='signup.jsp'">회원가입</button></td>
+                        </tr>
+                    </table>
+                </form>
             </div>
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-            </div>
-        </div>
+        </section>
+
+        <!-- Page Footer-->
+        <mytag:pageFooter />
     </div>
-</div>
-<div class="page">
-
-    <!-- Page Header-->
-    <mytag:pageHeader pageSector=" "/>
-
-    <!-- login form -->
-    <section class="body">
-        <h3>로그인</h3>
-        <div class="loginbox">
-            <form action="login.me" method="post">
-                <table style="align:center;">
-                    <tr>
-                        <td>아이디</td>
-                        <td><input name="customer_id" type="text"></td>
-                        <td rowspan="2"><img src="images/wgiv2.png" width="250px" height="250px"></td>
-                    </tr>
-                    <tr>
-                        <td>비밀번호</td>
-                        <td><input name="customer_password" type="password"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">로그인</button></td>
-                    </tr>
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" onclick="location.href='signup.jsp'">회원가입</button></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </section>
-
-    <!-- Page Footer-->
-    <mytag:pageFooter />
-</div>
-<!-- Global Mailform Output-->
-<div class="snackbars" id="form-output-global"></div>
-<!-- Javascript-->
-<script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
-<!-- coded by 마른오징어-->
-</body>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- coded by 마른오징어-->
+    </body>
 </html>

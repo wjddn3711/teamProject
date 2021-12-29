@@ -22,98 +22,55 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-</head>
-<body>
-<div class="preloader">
-    <div class="wrapper-triangle">
-        <div class="pen">
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-            </div>
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-            </div>
-            <div class="line-triangle">
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-                <div class="triangle"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="page">
+    <mytag:preloader />
+    <div class="page">
 
-    <!-- Page Header-->
-    <mytag:pageHeader pageSector="board"/>
+        <!-- Page Header-->
+        <mytag:pageHeader pageSector="board"/>
 
-    <!-- menuList -->
-    <section class="board">
-        <h3>상품신청</h3>
-        <hr>
+        <!-- menuList -->
+        <section class="body">
+            <h3>상품신청</h3>
+            <hr>
 
-        <div class="tableWrapper">
-            <table style="min-width:300px; padding-left:60px; padding-right:60px;">
-                <colgroup>
-                    <col style="width:20%;" />
-                    <col style="width:40%;" />
-                    <col style="width:20%;" />
-                    <col style="width:20%;" />
-                </colgroup>
-                <tr>
-                    <th colspan="4">
-                        <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='boardRequest.jsp'">나도 신청하기</button>
-                        <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="4">
-                        <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
-                            <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
-                            <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;
-                            <a href="categoryBoard.do?category=mine" class="filter">내 글 보기</a>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>추천수</th><th>음식명</th><th>작성자</th><th>날짜</th>
-                </tr>
-                <c:forEach var="v" items="${boardList}" >
+            <div class="tableWrapper">
+                <table style="min-width:300px; padding-left:60px; padding-right:60px;">
                     <tr>
-                        <td>${v.board_fav}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
+                        <th colspan="4" style="align-items: center;">
+                            <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='boardRequest.jsp'">나도 신청하기</button>
+                            <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
+                        </th>
                     </tr>
-                </c:forEach>
-                <tr>
-                    <td>${v.board_like}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
-                </tr>
+                    <tr>
+                        <th colspan="4" style="padding:5px;">
+                            <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
+                                <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
+                                <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;
+                                <a href="categoryBoard.do?category=mine" class="filter">내 글 보기</a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>추천수</th><th>음식명</th><th>작성자</th><th>날짜</th>
+                    </tr>
+                    <c:forEach var="v" items="${boardList}" >
+                        <tr>
+                            <td>${v.board_fav}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
+                        </tr>
+                    </c:forEach>
 
-            </table>
-        </div>
-    </section>
+                </table>
+            </div>
+        </section>
 
-    <!-- Page Footer-->
-    <mytag:pageFooter />
-</div>
-<!-- Global Mailform Output-->
-<div class="snackbars" id="form-output-global"></div>
-<!-- Javascript-->
-<script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
-<!-- coded by 마른오징어-->
-</body>
+        <!-- Page Footer-->
+        <mytag:pageFooter />
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- coded by 마른오징어-->
+    </body>
 </html>

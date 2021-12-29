@@ -25,12 +25,13 @@ public class MyPageAction implements Action{
         // 로그인이 되어있는 경우 마이페이지에 접근할 수 있기 때문에 customer_id 가 세션에 저장되어있다 가정하고 진행한다
         HttpSession session = request.getSession();
         String customer_id = (String) session.getAttribute("customer_id");
-        CustomerDAO dao = new CustomerDAO();
+        CustomerDAO customerDAO = new CustomerDAO();
         CustomerVO vo = new CustomerVO();
         vo.setCustomer_id(customer_id);
-        CustomerVO userData = dao.selectOne(vo); // 유저 데이터를 받아옴
+        CustomerVO userData = customerDAO.selectOne(vo); // 유저 데이터를 받아옴
+        request.setAttribute("userData", userData);
         // 현재 order_subscription 구독 DAO 가 완료 되지 않아 아직 못넘겨줌
-
+        System.out.println("유저데이터는:"+userData);
         forward.setPath("mypage.jsp");
         forward.setRedirect(false);
         return forward;

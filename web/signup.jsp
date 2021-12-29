@@ -18,45 +18,18 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
-  <!--[if lt IE 10]>
-  <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
-  <script src="js/html5shiv.min.js"></script>
-  <![endif]-->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window).on('load', function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow' : 'visible'});
+        })
+    </script>
 </head>
 <body>
-<div class="preloader">
-  <div class="wrapper-triangle">
-    <div class="pen">
-      <div class="line-triangle">
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-      </div>
-      <div class="line-triangle">
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-      </div>
-      <div class="line-triangle">
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-        <div class="triangle"></div>
-      </div>
-    </div>
-  </div>
+<div id="preloader">
+    <div id="status">&nbsp;</div>
 </div>
 <div class="page">
 
@@ -78,7 +51,7 @@
             <td>아이디</td>
             <td><input type="text" name="customer_id" class="input_id" placeholder="아이디" required></td>
 <%--            <td><button class="btn button-xs button-like idck">중복확인</button></td>--%>
-            <td><font id="checkId"></font></td>
+            <td><font id="checkId" ></font></td>
           </tr>
           <tr>
             <td>비밀번호</td>
@@ -88,7 +61,7 @@
           <tr>
             <td>비밀번호 확인</td>
             <td><input type="password" id="pw2" class="pwcheck" name="password_check" required></td>
-              <td><font id="checkPw"></font></td>
+              <td><font id="checkPw" ></font></td>
           </tr>
           <tr>
             <td rowspan="2">주소</td>
@@ -109,7 +82,6 @@
         </table>
       </form>
     <%--        아이디 확인 스크립트 --%>
-          <script src="js/jquery-3.6.0.min.js"></script>
           <script>
               let idChecked=false; // 중복 확인을 거쳤는지 확인
                 $("input[name='customer_id']").keyup(function() { // 아이디를 입력할때 마다 중복검사 실행
@@ -129,7 +101,7 @@
                         dataType: 'json',
                         success: function (result) {
                             if (result == "0") {
-                                $("#checkId").html('시용할 수 없는 아이디입니다.');
+                                $("#checkId").html('사용할 수 없는 아이디입니다.');
                                 $("#checkId").attr('color', 'red');
                                 idChecked = false; // id체크 true
                             } else {

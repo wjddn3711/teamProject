@@ -1,6 +1,6 @@
 package controller.crawler;
 
-import model.ProductDAO;
+import model.product.ProductDAO;
 
 public class InitDataDestroyer {
     public static void main(String[] args) {

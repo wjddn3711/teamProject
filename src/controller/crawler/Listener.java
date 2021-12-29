@@ -1,7 +1,7 @@
 //package controller.crawler;
 //
-//import model.ProductDAO;
-//import model.ProductVO;
+//import model.product.ProductDAO;
+//import model.product.ProductVO;
 //import org.jsoup.nodes.Document;
 //
 //import javax.servlet.*;
