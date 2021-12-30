@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class BoardInsertAction implements Action {
     @Override
@@ -28,7 +29,7 @@ public class BoardInsertAction implements Action {
         System.out.println("현재 vo: "+vo);
         dao.insert(vo);
         forward.setPath("boardDone.jsp");
-        forward.setRedirect(true);
+        forward.setRedirect(true); // 넘겨야 할 데이터 X
         return forward;
     }
 }

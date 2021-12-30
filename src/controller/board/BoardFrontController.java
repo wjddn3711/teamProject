@@ -3,9 +3,12 @@ package controller.board;
 import controller.ActionForward;
 import controller.MainAction;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "BoardFrontController", value = "/BoardFrontController")
@@ -75,6 +78,20 @@ public class BoardFrontController extends HttpServlet {
                 forward = new BoardInsertAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("insertBoard.do 수행중 문제 발생");
+            }
+        }
+        else if(command.equals("boardDelete")){
+            try{
+                forward = new BoardDeleteAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("deleteBoard.do 수행중 문제 발생");
+            }
+        }
+        else if(command.equals("boardDetail")){
+            try{
+                forward = new BoardDetailAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("detailBoard.do 수행중 문제 발생");
             }
         }
 

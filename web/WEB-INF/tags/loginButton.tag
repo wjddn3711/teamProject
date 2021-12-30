@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:choose>
-<c:when test="${user_id==null}">
+<c:when test="${customer_id==null}">
 	<a href="login.jsp" class="btn button-xxs button-white">로그인</a>
 </c:when>
 <c:otherwise> 

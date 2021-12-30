@@ -8,6 +8,7 @@ import model.board.BoardVO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -20,9 +21,10 @@ public class BoardCategoryAction implements Action {
         // 내글보기: mine, 최신순: recent, 좋아요순: favorite 의 카테고리 값을 가진다고 가정하고 진행
         BoardDAO dao = new BoardDAO();
         if(category.equals("mine")){
+            HttpSession session= request.getSession();
             BoardVO vo = new BoardVO();
             // 현재 로그인된 uid 를 통하여 select 쿼리로 찾을 수 있을 것이다.
-            vo.setCustomer_id(request.getParameter("customer_id"));
+            vo.setCustomer_id((String) session.getAttribute("customer_id"));
             ArrayList<BoardVO> boardList= dao.selectMine(vo);
             request.setAttribute("boardList",boardList);
 

@@ -29,8 +29,6 @@ public class LogInAction implements Action {
             session.setAttribute("customer_id",data.getCustomer_id());
             session.setAttribute("customer_name",data.getCustomer_name()); // "000님 환영합니다"에 쓰임
             System.out.println(data.getCustomer_name());
-            response.setContentType("text/html; charset=UTF-8");
-            PrintWriter out = response.getWriter(); // 스크립트 printwriter
             forward = new ActionForward();
             forward.setPath("main.do");
             forward.setRedirect(true); // 세션에 저장하였기 때문에 넘겨줘야할 데이터가 없다 가정

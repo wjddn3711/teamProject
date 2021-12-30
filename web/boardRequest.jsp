@@ -31,33 +31,35 @@
         <section class="section section-sm section-first bg-default">
             <div class="container">
                 <h3 class="heading-3">상품신청</h3>
-                <form class="rd-form rd-mailform form-style-1" method="post" action="insertBoard.do">
-                    <input type="hidden" name="action" value="insertBoard.do">
-                    <div class="row row-20 gutters-20">
-                        <div class="col-md-6 col-lg-4 oh-desktop">
-                            <div class="form-wrap wow slideInDown">
-                                <input class="form-input" id="hopemenu" type="text" name="board_title" data-constraints="@Required">
-                                <label class="form-label" for="hopemenu">음식명 (예시:해물파전)</label>
+                <div class="rd-form form-style-1">
+<%--                <form class="rd-form rd-mailform form-style-1" method="post" action="insertBoard.do">--%>
+                    <form  method="post" action="insertBoard.do">
+                        <div class="row row-20 gutters-20">
+                            <div class="col-md-6 col-lg-4 oh-desktop">
+                                <div class="form-wrap wow slideInDown">
+                                    <input class="form-input" id="hopemenu" type="text" name="board_title" data-constraints="@Required">
+                                    <label class="form-label" for="hopemenu">음식명 (예시:해물파전)</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-wrap wow fadeIn">
+                                    <label class="form-label" for="explainyourmenu">음식설명</label>
+                                    <textarea class="form-input textarea-lg" id="explainyourmenu" name="board_content" data-constraints="@Required"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-wrap wow fadeIn">
-                                <label class="form-label" for="explainyourmenu">음식설명</label>
-                                <textarea class="form-input textarea-lg" id="explainyourmenu" name="board_content" data-constraints="@Required"></textarea>
-                            </div>
+                        <div class="group-custom-1 group-middle oh-desktop">
+                            <button class="button button-lg button-primary button-winona wow fadeInRight" type="submit" >신청</button>
+                            <!-- Quote Classic-->
+                            <article class="quote-classic quote-classic-3 wow slideInDown">
+                                <div class="quote-classic-text">
+                                    <p class="q">게시 후에는 수정이 불가하오니 신중하게 작성 부탁드립니다.</p><hr>
+                                    <p class="q2">이미 신청목록에 있는 메뉴라면 새로 신청하기보다 좋아요를 눌러주는 것이 반영될 확률이 더 큽니다!</p>
+                                </div>
+                            </article>
                         </div>
-                    </div>
-                    <div class="group-custom-1 group-middle oh-desktop">
-                        <button class="button button-lg button-primary button-winona wow fadeInRight" type="submit" >신청</button>
-                        <!-- Quote Classic-->
-                        <article class="quote-classic quote-classic-3 wow slideInDown">
-                            <div class="quote-classic-text">
-                                <p class="q">게시 후에는 수정이 불가하오니 신중하게 작성 부탁드립니다.</p><hr>
-                                <p class="q2">이미 신청목록에 있는 메뉴라면 새로 신청하기보다 좋아요를 눌러주는 것이 반영될 확률이 더 큽니다!</p>
-                            </div>
-                        </article>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </section>
 

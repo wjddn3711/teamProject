@@ -23,7 +23,7 @@ public class BoardSearchAction implements Action {
 
         // Action
         ActionForward forward = new ActionForward();
-        forward.setPath("board.jsp");
+        forward.setPath("boardList.jsp");
         forward.setRedirect(false);  //dao로 부터 받은 리스트를 넘겨줘야하기 때문에 forward
         return forward;
     }

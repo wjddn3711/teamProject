@@ -92,25 +92,26 @@ public class OrderDAO {
 			pstmt = conn.prepareStatement(sql_selectSearch);
 			pstmt.setInt(1,keyword);
 			rs = pstmt.executeQuery();
-				Order_singleVO s = new Order_singleVO();
-				ArrayList<Order_detailVO> details = new ArrayList<Order_detailVO>();
-				s.setSingle_number(rs.getInt("single_number"));
-				s.setCustomer_id(rs.getString("customer_id"));
-				s.setSingle_date(rs.getString("single_date"));
-				String sql = "select * from order_detail where single_number=? order by detail_number desc";
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, s.getSingle_number());
-				ResultSet rs2 = pstmt.executeQuery();
-				while (rs2.next()) {
-					Order_detailVO d = new Order_detailVO();
-					d.setDetail_number(rs2.getInt("detatil_number"));
-					d.setSingle_number(rs2.getInt("single_number"));
-					d.setProduct_number(rs2.getInt("product_number"));
-					d.setProduct_count(rs2.getInt("product_count"));
-					details.add(d);
-				}
-				order.setSingle(s);
-				order.setDetails(details);
+			rs.next();
+			Order_singleVO s = new Order_singleVO();
+			ArrayList<Order_detailVO> details = new ArrayList<Order_detailVO>();
+			s.setSingle_number(rs.getInt("single_number"));
+			s.setCustomer_id(rs.getString("customer_id"));
+			s.setSingle_date(rs.getString("single_date"));
+			String sql = "select * from order_detail where single_number=? order by detail_number desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, s.getSingle_number());
+			ResultSet rs2 = pstmt.executeQuery();
+			while (rs2.next()) {
+				Order_detailVO d = new Order_detailVO();
+				d.setDetail_number(rs2.getInt("detatil_number"));
+				d.setSingle_number(rs2.getInt("single_number"));
+				d.setProduct_number(rs2.getInt("product_number"));
+				d.setProduct_count(rs2.getInt("product_count"));
+				details.add(d);
+			}
+			order.setSingle(s);
+			order.setDetails(details);
 		} catch (SQLException e) {
 			System.out.println("OrderDAO selectOne()에서 문제발생!");
 			e.printStackTrace();

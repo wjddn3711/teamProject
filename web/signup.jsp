@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?after">
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
         $(window).on('load', function() { // makes sure the whole site is loaded

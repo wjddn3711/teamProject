@@ -3,13 +3,13 @@
 <%@ attribute name="filter" %>
 
 <c:choose>
-	<c:when test="${filter=='main'}">
+	<c:when test="${filter=='메인'}">
 		<span class="product-badge product-badge-main">main</span>
 	</c:when>
-	<c:when test="${filter=='side'}">
+	<c:when test="${filter=='반찬'}">
 		<span class="product-badge product-badge-side">side</span>
 	</c:when>
-	<c:when test="${filter=='soup'}">
+	<c:when test="${filter=='국'}">
 		<span class="product-badge product-badge-soup">soup</span>
 	</c:when>
 	<c:otherwise></c:otherwise>

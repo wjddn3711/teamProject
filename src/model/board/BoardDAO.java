@@ -27,9 +27,34 @@ public class BoardDAO {
     String sql_selectSearch = "select * from board where board_title like ? or board_content like ? order by board_number desc";
     String sql_selectFav = "select * from board order by board_fav desc";
     String sql_selectMine = "select * from board where customer_id=? order by board_number desc";
+    String sql_selectOne = "select * from board where board_number=?";
     String sql_insert = "insert into board(customer_id, board_date,board_title, board_content,board_fav) values (?,now(),?,?,0)";
     String sql_delete = "delete from board where board_number=?";
     String sql_update = "update board set board_fav = board_fav+1 where board_number=?";
+
+    public BoardVO selectOne(BoardVO data) {
+        conn = JDBCUtil.connect();
+        try {
+            pstmt = conn.prepareStatement(sql_selectOne);
+            pstmt.setInt(1,data.getBoard_number());
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            BoardVO vo = new BoardVO();
+            vo.setBoard_number(rs.getInt("board_number"));
+            vo.setCustomer_id(rs.getString("customer_id"));
+            vo.setBoard_date(rs.getString("board_date"));
+            vo.setBoard_title(rs.getString("board_title"));
+            vo.setBoard_content(rs.getString("board_content"));
+            vo.setBoard_fav(rs.getInt("board_fav"));
+            return vo;
+        } catch (SQLException e) {
+            System.out.println("BoardDAO의 SelectAll()에서 문제 발생!");
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.disconnect(pstmt, conn);
+        }
+        return null;
+    }
 
     public ArrayList<BoardVO> selectAll() {
         conn = JDBCUtil.connect();

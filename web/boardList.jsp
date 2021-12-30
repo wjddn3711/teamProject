@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?after">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
@@ -37,16 +37,16 @@
                 <table style="min-width:300px; padding-left:60px; padding-right:60px;">
                     <tr>
                         <th colspan="4" style="align-items: center;">
-                            <button class="button2 button-md button-primary button-winona wow fadeInRight" style="float: left;" onclick="location.href='boardRequest.jsp'">나도 신청하기</button>
-                            <form style=" float: right; padding-left:10px; display:inline;"><input type="text" name="search"><input type="submit" value="검색" style="font-size:17px;"></form>
+                            <mytag:boardRequest/>
+                            <form method="post" action="searchBoard.do" style=" float: right; padding-left:10px; display:inline;"><input type="text" name="keyword"><input type="submit" value="검색" style="font-size:17px;"></form>
                         </th>
                     </tr>
                     <tr>
                         <th colspan="4" style="padding:5px;">
                             <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
                                 <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
-                                <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;|&nbsp;
-                                <a href="categoryBoard.do?category=mine" class="filter">내 글 보기</a>
+                                <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;
+                                <mytag:mypost/>
                             </div>
                         </th>
                     </tr>
@@ -55,7 +55,7 @@
                     </tr>
                     <c:forEach var="v" items="${boardList}" >
                         <tr>
-                            <td>${v.board_fav}</td><td>${v.board_title}</td><td>${v.customer_id}</td><td>${v.board_date}</td>
+                            <td>${v.board_fav}</td><td><a href="boardDetail.do?board_number=${v.board_number}">${v.board_title}</a></td><td>${v.customer_id}</td><td>${v.board_date}</td>
                         </tr>
                     </c:forEach>
 
