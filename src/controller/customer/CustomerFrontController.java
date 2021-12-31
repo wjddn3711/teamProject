@@ -79,6 +79,7 @@ public class CustomerFrontController extends HttpServlet {
         }
         else if(command.equals("deleteUser")){
             try{
+                System.out.println("delete수행");
                 forward = new DeleteUserAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("deleteUser.do 수행중 문제 발생");

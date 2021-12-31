@@ -43,6 +43,7 @@ public class MyPageAction implements Action{
         Product_setVO product_set = odao.selectProductSet(order);
         request.setAttribute("order",order);
         request.setAttribute("product_set",product_set);
+        System.out.println("넘버 : "+product_set.getProduct_set_number());
         System.out.println("유저 order : "+product_set);
 
         forward.setPath("mypage.jsp");

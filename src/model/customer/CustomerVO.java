@@ -4,8 +4,8 @@ public class CustomerVO {
     private String customer_id;
     private String customer_password;
     private String customer_name;
-    private int phone_number;
-    private int ZIP_code;
+    private String phone_number;
+    private String ZIP_code;
     private String detailed_address;
 
     public String getCustomer_id() {
@@ -26,16 +26,16 @@ public class CustomerVO {
     public void setCustomer_name(String customer_name) {
         this.customer_name = customer_name;
     }
-    public int getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
-    public int getZIP_code() {
+    public String getZIP_code() {
         return ZIP_code;
     }
-    public void setZIP_code(int zIP_code) {
+    public void setZIP_code(String zIP_code) {
         ZIP_code = zIP_code;
     }
     public String getDetailed_address() {

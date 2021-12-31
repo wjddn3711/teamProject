@@ -42,7 +42,6 @@
 
                 <div class="row row-lg row-30">
                     <!-- Product-->
-                    <h3>아직 구현되지 않은 페이지 입니다</h3>
                     <c:forEach var="v" items="${cart}">
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <article class="product wow fadeInLeft" data-wow-delay=".15s">
@@ -61,10 +60,34 @@
                             </article>
                         </div>
                     </c:forEach>
-
-
                     <!-- 예시글 끝 -->
+                </div>
+                <c:if test="${product_set!=null}">
+                    <div class="row row-lg row-30">
+                        <tr style="padding:30px; border-bottom: 2px solid black;">
+                            <td>
+                                <ul>
+                                    1주차 : <li>${product_set.product_set_1st}</li>
+                                </ul>
+                                <hr>
+                                <ul>
+                                    2주차 : <li>${product_set.product_set_2nd}</li>
+                                </ul>
+                                <hr>
+                                <ul>
+                                    3주차 : <li>${product_set.product_set_3rd}</li>
+                                </ul>
+                                <hr>
+                                <ul>
+                                    4주차 : <li>${product_set.product_set_4th}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </div>
+                </c:if>
 
+                <div class="row row-lg row-30">
+                    <h1>총 금액 : ${totalPrice}</h1>
                 </div>
             </div>
         </section>

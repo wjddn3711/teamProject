@@ -22,8 +22,8 @@ public class UpdateUserAction implements Action{
         vo.setCustomer_id((String) session.getAttribute("customer_id"));
         vo.setCustomer_name(request.getParameter("customer_name"));
         vo.setCustomer_password(request.getParameter("customer_password"));
-        vo.setPhone_number(Integer.parseInt(request.getParameter("phone_number"))); // String 으로 바껴야 할것같음
-        vo.setZIP_code(Integer.parseInt(request.getParameter("ZIP_CODE"))); // String 으로 (0 부터 시작할 경우 0 이 사라짐 처리할수가 없음)
+        vo.setPhone_number(request.getParameter("phone_number")); // String 으로 바껴야 할것같음
+        vo.setZIP_code(request.getParameter("ZIP_CODE")); // String 으로 (0 부터 시작할 경우 0 이 사라짐 처리할수가 없음)
         vo.setDetailed_address(request.getParameter("detailed_address"));
         System.out.println(vo);
         // 회원 구독 정보 불러오기

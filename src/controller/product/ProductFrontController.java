@@ -77,6 +77,13 @@ public class ProductFrontController extends HttpServlet {
                 System.out.println("productSearch 수행중 문제 발생");
             }
         }
+        else if(command.equals("subscription")){
+            try{
+                forward = new SubscribeAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("subscription 수행중 문제 발생");
+            }
+        }
 
         if(forward!=null){
             if(forward.isRedirect()){

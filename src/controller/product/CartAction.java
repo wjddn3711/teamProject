@@ -3,6 +3,7 @@ import controller.Action;
 import controller.ActionForward;
 import model.product.ProductDAO;
 import model.product.ProductVO;
+import model.subscription.Order_subscriptionVO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +43,18 @@ public class CartAction implements Action{
 
             // 장바구니 페이지로 이동
 
+            // 계산 금액 책정
+            int totalPrice =0;
+            for (ProductVO p : cart) {
+                totalPrice+=p.getProduct_price();
+            }
+
+            if(session.getAttribute("product_set")!=null){
+                // 만약 구독신청도 한 상태라면
+                int product_set_price = (int) session.getAttribute("product_set_price");
+                totalPrice+=product_set_price;
+            }
+            session.setAttribute("totalPrice",totalPrice); // 전체 금액을 세션에 저장
             forward.setPath("cart.jsp");
             forward.setRedirect(true); // 넘겨줄 데이터 X
         }

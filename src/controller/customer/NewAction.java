@@ -21,8 +21,8 @@ public class NewAction implements Action {
         vo.setCustomer_id(request.getParameter("customer_id"));
         vo.setCustomer_password(request.getParameter("customer_password"));
         vo.setCustomer_name(request.getParameter("customer_name"));
-        vo.setPhone_number(Integer.parseInt(request.getParameter("phone_number")));
-        vo.setZIP_code(Integer.parseInt(request.getParameter("ZIP_code")));
+        vo.setPhone_number(request.getParameter("phone_number"));
+        vo.setZIP_code(request.getParameter("ZIP_code"));
         vo.setDetailed_address(request.getParameter("detailed_address"));
         if(dao.insert(vo)){ // 회원 가입에 성공했다면
             forward = new ActionForward();

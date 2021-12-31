@@ -35,7 +35,7 @@
    	  <button class="button2 button-md button-primary button-winona fadeInRight" onclick="location.href='login.jsp'">구독하기</button>
    	 </c:when>
    	 <c:otherwise>
-   	  <button class="button2 button-md button-primary button-winona fadeInRight" onclick="location.href='#'">구독하기</button>
+   	  <button class="button2 button-md button-primary button-winona fadeInRight" onclick="location.href='subscription.pd?isSoup=미포함'">구독하기</button>
    	 </c:otherwise>
    	</c:choose>
    </td>
@@ -46,7 +46,7 @@
    	  <button class="button2 button-md button-redtext button-winona fadeInRight" onclick="location.href='login.jsp'">구독하기</button>
    	 </c:when>
    	 <c:otherwise>
-   	  <button class="button2 button-md button-redtext button-winona fadeInRight" onclick="location.href='#'">구독하기</button>
+   	  <button class="button2 button-md button-redtext button-winona fadeInRight" onclick="location.href='subscription.pd?isSoup=포함'">구독하기</button>
    	 </c:otherwise>
    	</c:choose>
    </td>

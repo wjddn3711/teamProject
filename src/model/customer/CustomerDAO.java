@@ -29,8 +29,8 @@ public class CustomerDAO {
             pstmt.setString(1, vo.getCustomer_id());
             pstmt.setString(2, vo.getCustomer_password());
             pstmt.setString(3, vo.getCustomer_name());
-            pstmt.setInt(4, vo.getPhone_number());
-            pstmt.setInt(5, vo.getZIP_code());
+            pstmt.setString(4, vo.getPhone_number());
+            pstmt.setString(5, vo.getZIP_code());
             pstmt.setString(6, vo.getDetailed_address());
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -107,8 +107,8 @@ public class CustomerDAO {
                 data.setCustomer_id(rs.getString("customer_id"));
                 data.setCustomer_password(rs.getString("customer_password"));
                 data.setCustomer_name(rs.getString("customer_name"));
-                data.setPhone_number(rs.getInt("phone_number"));
-                data.setZIP_code(rs.getInt("ZIP_code"));
+                data.setPhone_number(rs.getString("phone_number"));
+                data.setZIP_code(rs.getString("ZIP_code"));
                 data.setDetailed_address(rs.getString("detailed_address"));
             }
             rs.close();
@@ -129,8 +129,8 @@ public class CustomerDAO {
             pstmt.setString(6, vo.getCustomer_id());
             pstmt.setString(1, vo.getCustomer_password());
             pstmt.setString(2, vo.getCustomer_name());
-            pstmt.setInt(3, vo.getPhone_number());
-            pstmt.setInt(4, vo.getZIP_code());
+            pstmt.setString(3, vo.getPhone_number());
+            pstmt.setString(4, vo.getZIP_code());
             pstmt.setString(5, vo.getDetailed_address());
             check = pstmt.executeUpdate();
         } catch (Exception e) {
