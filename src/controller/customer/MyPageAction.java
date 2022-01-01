@@ -39,13 +39,15 @@ public class MyPageAction implements Action{
         Order_suscriptionDAO odao = new Order_suscriptionDAO();
         Order_subscriptionVO ovo = new Order_subscriptionVO();
         ovo.setCustomer_id(customer_id);
-        Order_subscriptionVO order = odao.selectOne(ovo);
-        Product_setVO product_set = odao.selectProductSet(order);
-        request.setAttribute("order",order);
-        request.setAttribute("product_set",product_set);
-        System.out.println("넘버 : "+product_set.getProduct_set_number());
-        System.out.println("유저 order : "+product_set);
-
+        if(session.getAttribute("product_set")!=null){
+            Order_subscriptionVO order = odao.selectOne(ovo);
+            Product_setVO product_set = odao.selectProductSet(order);
+            System.out.println(product_set);
+            request.setAttribute("order",order);
+            request.setAttribute("product_set",product_set);
+            System.out.println("넘버 : "+product_set.getProduct_set_number());
+            System.out.println("유저 order : "+product_set);
+        }
         forward.setPath("mypage.jsp");
         forward.setRedirect(false);
         return forward;

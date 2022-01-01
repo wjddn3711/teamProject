@@ -20,6 +20,64 @@ public class CustomerDAO {
     String sql_update = "update customer set customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=? where customer_id=?";
     String sql_delete = "delete from customer where customer_id=? and customer_password=?";
     String sql_login_check = "select * from customer where customer_id=?";
+    String sql_valid_pw = "select * from customer where customer_id=? and phone_number=?";
+    String sql_valid_id = "select * from customer where customer_name=? and phone_number=?";
+    String sql_updateTemp = "update customer set customer_password=? where customer_id=?";
+
+    public String validationId(CustomerVO vo){ // 유효한 아이디가 있는지 찾기위한 DAO
+        // 만약 id 가 존재한다면 id를 반환 아니라면 null
+        String id = "";
+        try {
+            conn = JDBCUtil.connect();
+            pstmt = conn.prepareStatement(sql_valid_id);
+            pstmt.setString(1, vo.getCustomer_name());
+            pstmt.setString(2,vo.getPhone_number());
+            ResultSet rs= pstmt.executeQuery(); // 실행
+            if(rs.next()){ // 만약 해당 결과가 있다면, id와 전화번호 둘다 일치한다면
+                id = rs.getString("customer_id");
+                return id;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean validationPw(CustomerVO vo){ // 임시 비밀번호를 위한 DAO
+        try {
+            conn = JDBCUtil.connect();
+            pstmt = conn.prepareStatement(sql_valid_pw);
+            pstmt.setString(1, vo.getCustomer_id());
+            pstmt.setString(2,vo.getPhone_number());
+            System.out.println(sql_valid_pw);
+            ResultSet rs= pstmt.executeQuery(); // 실행
+            if(rs.next()){ // 만약 해당 결과가 있다면, id와 전화번호 둘다 일치한다면
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean updateTemp(CustomerVO vo){
+        try {
+            conn = JDBCUtil.connect();
+            pstmt = conn.prepareStatement(sql_updateTemp);
+            pstmt.setString(1, vo.getCustomer_password());
+            pstmt.setString(2, vo.getCustomer_id());
+            if(pstmt.executeUpdate()>=1){
+                // 만약 업데이트가 정상적으로 이루어졌다면
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("정보 수정 문제발생");
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.disconnect(pstmt, conn);
+        }
+        return false;
+    }
 
     // 회원가입(c)
     public boolean insert(CustomerVO vo) {

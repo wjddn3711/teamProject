@@ -1,9 +1,11 @@
-public class Test {
-    public static void main(String[] args) {
+package controller.component;
+
+public class TemporaryPassword {
+    public String getTempPassword(){
         char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8',
                 '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' , '*','!','@',
-        '#','$','%','^','&','*'}; // 임의로 숫자, 특수문자, 문자로 구성된 charSet 을 생성
+                '#','$','%','^','&','*'}; // 임의로 숫자, 특수문자, 문자로 구성된 charSet 을 생성
         int idx = 0;
         String tempPassword = "";
         for (int i = 0; i < 12; i++) {  // 임시 비밀번호 12 자 생성
@@ -11,6 +13,6 @@ public class Test {
             idx = (int) (charSet.length * Math.random());
             tempPassword+=charSet[idx];
         }
-        System.out.println("임시 비밀번호는 :"+tempPassword);
+        return tempPassword;
     }
 }

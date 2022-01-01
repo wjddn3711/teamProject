@@ -9,7 +9,7 @@
             </tr>
             <tr>
                 <td>이름</td>
-                <td><input name="customer_name" type="text" placeholder="${customer_name}" ></td>
+                <td><input name="customer_name" type="text" placeholder="${customer_name}" required></td>
                 <td></td>
             </tr>
             <tr>
@@ -19,25 +19,25 @@
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td><input type="password" id="pw1"  name="customer_password" placeholder="비밀번호는 안전하게" ></td>
+                <td><input type="password" id="pw1"  name="customer_password" placeholder="비밀번호는 안전하게" required></td>
                 <td></td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
-                <td><input type="password" id="pw2"  class="pwcheck" name="password_check" ></td>
+                <td><input type="password" id="pw2"  class="pwcheck" name="password_check" required></td>
                 <td><font id="checkPw" ></font></td>
             </tr>
             <tr>
                 <td rowspan="2">주소</td>
-                <td><input name="ZIP_CODE"  type="text" id="sample4_postcode" placeholder="${userData.ZIP_code}"></td>
+                <td><input name="ZIP_CODE"  type="text" id="sample4_postcode" placeholder="${userData.ZIP_code}" required></td>
                 <td><input type="button"  onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><mytag:postcode /></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress"  placeholder="${userData.detailed_address}"></td>
+                <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress"  placeholder="${userData.detailed_address}" required></td>
             </tr>
             <tr>
                 <td>핸드폰 번호</td>
-                <td><input name="phone_number"  type="text" placeholder="${userData.phone_number}"></td>
+                <td><input name="phone_number"  type="text" placeholder="${userData.phone_number}" required></td>
                 <td></td>
             </tr>
             <tr>

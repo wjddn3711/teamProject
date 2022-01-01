@@ -28,5 +28,7 @@
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="jsoup-1.14.3" level="project" />
     <orderEntry type="library" name="tomcat.servlet" level="project" />
+    <orderEntry type="library" name="javaSDK-2.2" level="project" />
+    <orderEntry type="library" name="commons-email-1" level="project" />
   </component>
 </module>

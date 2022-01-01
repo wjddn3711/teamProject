@@ -12,6 +12,9 @@
           <element id="library" level="project" name="mysql-connector-java-5.1" />
           <element id="library" level="project" name="jstl" />
           <element id="library" level="project" name="jsoup-1.14.3" />
+          <element id="library" level="project" name="tomcat.servlet" />
+          <element id="library" level="project" name="javaSDK-2.2" />
+          <element id="library" level="project" name="commons-email-1" />
         </element>
       </element>
     </root>

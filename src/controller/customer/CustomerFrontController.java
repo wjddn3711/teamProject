@@ -92,6 +92,20 @@ public class CustomerFrontController extends HttpServlet {
                 System.out.println("mypageAction 수행중 문제 발생");
             }
         }
+        else if(command.equals("findPw")){
+            try{
+                forward = new FindPwAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("findpw 수행중 문제 발생");
+            }
+        }
+        else if(command.equals("findId")){
+            try{
+                forward = new FindIdAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("findid 수행중 문제 발생");
+            }
+        }
 //        else if(command.equals("myorder")){
 //            try{
 //                forward = new MyOrderAction().execute(request, response);
