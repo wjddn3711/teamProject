@@ -44,7 +44,7 @@ public class ProductFrontController extends HttpServlet {
         }
         else if(command.equals("productAdd")){
             try{
-                forward = new CartAction().execute(request, response);
+                forward = new AddCartAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("productAdd 수행중 문제 발생");
             }
@@ -82,6 +82,20 @@ public class ProductFrontController extends HttpServlet {
                 forward = new SubscribeAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("subscription 수행중 문제 발생");
+            }
+        }
+        else if(command.equals("updateCart")){
+            try{
+                forward = new UpdateCartAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("update Cart 수행중 문제 발생");
+            }
+        }
+        else if(command.equals("deleteCart")){
+            try{
+                forward = new DeleteCartAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("delete Cart 수행중 문제 발생");
             }
         }
 

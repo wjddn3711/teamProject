@@ -17,13 +17,11 @@ public class SubscribeAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String isSoup = request.getParameter("isSoup");
-        int product_set_price=0;
-        if(isSoup.equals("미포함")){
-            product_set_price=190000;
-        }
-        else{
+        int product_set_price=190000;
+        if(isSoup.equals("포함")){
             product_set_price=220000;
         }
+
         Order_suscriptionDAO dao = new Order_suscriptionDAO();
         Order_subscriptionVO vo= new Order_subscriptionVO();
         HttpSession session = request.getSession();
@@ -31,13 +29,10 @@ public class SubscribeAction implements Action{
         vo.setSoup_check(isSoup);
         System.out.println("vo :"+vo);
         Product_setVO product_set = dao.selectRandom(vo);
-//        Product_setVO pvo = new Product_setVO();
-//        pvo.setProduct_set_number(product_set.getProduct_set_number());
         if(product_set!=null){
             // 밥상 insert
             session.setAttribute("product_set",product_set);
             session.setAttribute("product_set_price",product_set_price);
-//            session.setAttribute("product_set",product_set);
             System.out.println("밥상 장바구니 추가 완료!");
             System.out.println(product_set);
             response.setContentType("text/html; charset=UTF-8");

@@ -27,7 +27,7 @@ public class NewAction implements Action {
         if(dao.insert(vo)){ // 회원 가입에 성공했다면
             forward = new ActionForward();
             // 로그인 페이지로 이동
-            forward.setPath("login.jsp");
+            forward.setPath("signUpDone.jsp");
             forward.setRedirect(true);
         }
         else{

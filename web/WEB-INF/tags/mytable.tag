@@ -12,19 +12,19 @@
         <tr style="padding:30px; border-bottom: 2px solid black;">
             <td>
                 <ul>
-                    1주차 : <li>${product_set.product_set_1st}</li>
+                    1주차 : <li>${order_set.product_set_1st}</li>
                 </ul>
                 <hr>
                 <ul>
-                    2주차 : <li>${product_set.product_set_2nd}</li>
+                    2주차 : <li>${order_set.product_set_2nd}</li>
                 </ul>
                 <hr>
                 <ul>
-                    3주차 : <li>${product_set.product_set_3rd}</li>
+                    3주차 : <li>${order_set.product_set_3rd}</li>
                 </ul>
                 <hr>
                 <ul>
-                    4주차 : <li>${product_set.product_set_4th}</li>
+                    4주차 : <li>${order_set.product_set_4th}</li>
                 </ul>
             </td>
             <td>

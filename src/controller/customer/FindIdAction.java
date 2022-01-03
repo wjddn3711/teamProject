@@ -25,7 +25,12 @@ public class FindIdAction implements Action{
         vo.setPhone_number(phone_number);
         String id = dao.validationId(vo);
         if(id!=null){ // 만약 해당하는 아이디가 있다면
-            out.write( "회원님의 아이디는 "+id+"입니다. \n확인 후 로그인 해주세요");
+            int len = id.length()*3/4; // 아이디의 3/4만 보여줄수 있도록 나머지는 * 처리
+            String fill = "";
+            for (int i = len; i < id.length(); i++) {
+                fill+='*';
+            }
+            out.write( "회원님의 아이디는 "+id.substring(0,len)+fill+"입니다. \n확인 후 로그인 해주세요");
         }
         else{
             out.println("해당하는 아이디가 존재하지 않습니다!");

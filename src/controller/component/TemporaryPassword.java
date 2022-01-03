@@ -8,7 +8,7 @@ public class TemporaryPassword {
                 '#','$','%','^','&','*'}; // 임의로 숫자, 특수문자, 문자로 구성된 charSet 을 생성
         int idx = 0;
         String tempPassword = "";
-        for (int i = 0; i < 12; i++) {  // 임시 비밀번호 12 자 생성
+        for (int i = 0; i < 8; i++) {  // 임시 비밀번호 12 자 생성
             // charSet 의 길이만큼의 랜덤한 숫자를 뽑아  랜덤 index 생성 후 해당 인덱스의 값을 결과에 더해준다
             idx = (int) (charSet.length * Math.random());
             tempPassword+=charSet[idx];

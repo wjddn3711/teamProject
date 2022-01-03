@@ -42,21 +42,22 @@
 
                 <div class="row row-lg row-30">
                     <!-- Product-->
-                    <c:forEach var="v" items="${cart}">
+                    <c:forEach var="v" items="${cart.singleProducts}">
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <article class="product wow fadeInLeft" data-wow-delay=".15s">
-                                <div class="product-figure"><img src="${v.product_image}" alt="" width="161" height="162"/>
+                                <div class="product-figure"><img src="${v.productVO.product_image}" alt="" width="161" height="162"/>
                                 </div>
                                 <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
                                 </div>
-                                <h6 class="product-title">${v.product_name}</h6>
+                                <h6 class="product-title">${v.productVO.product_name}</h6>
                                 <div class="product-price-wrap">
                                     <div class="product-price">₩ ${v.product_price}</div>
                                 </div>
+                                <div class="product-price-wrap">
+                                    <div class="product-price">수량 ${v.product_count}</div>
+                                </div>
                                 <div class="product-button">
-                                    <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="productAdd.pd?product_number=${v.product_number}">장바구니에 추가</a></div>
-                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="productDetail.pd?product_number=${v.product_number}">상세보기</a></div>
-                                </div><mytag:productTypeBadge filter="${v.product_type}" />
+                                </div><mytag:productTypeBadge filter="${v.productVO.product_type}" />
                             </article>
                         </div>
                     </c:forEach>
@@ -87,7 +88,7 @@
                 </c:if>
 
                 <div class="row row-lg row-30">
-                    <h1>총 금액 : ${totalPrice}</h1>
+                    <h1>총 금액 : ${totalPrice+product_set_price}</h1>
                 </div>
             </div>
         </section>
