@@ -20,13 +20,13 @@ public class ProductCategoryAction implements Action{
         request.setAttribute("filter",filter);
         System.out.println(filter);
         ArrayList<ProductVO> productList = new ArrayList<>();
-        if(filter.equals("main")){
+        if(filter.equals("main") || filter.equals("메인")){
             productList= dao.selectMain();
         }
-        else if(filter.equals("side")){
+        else if(filter.equals("side") || filter.equals("반찬")){
             productList= dao.selectSide();
         }
-        else if(filter.equals("soup")){
+        else if(filter.equals("soup") || filter.equals("국")){
             productList= dao.selectSoup();
         }
         request.setAttribute("productList", productList);

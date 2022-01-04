@@ -19,7 +19,7 @@ public class ProductDetailAction implements Action{
         ProductVO productVO = dao.selectOne(vo);
 
         request.setAttribute("productVO",productVO);
-        forward.setPath("productDetail.jsp"); // 아직 구현되지 않은 페이지
+        forward.setPath("productSingle.jsp"); // 아직 구현되지 않은 페이지
         forward.setRedirect(false); // 넘겨줘야할 데이터 O
         return forward;
     }

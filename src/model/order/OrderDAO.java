@@ -20,8 +20,8 @@ public class OrderDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertS = "insert into order_single values ((select nvl(max(single_number),0)+1 from order_single),?,(select sysdate from dual))";
-	String sql_insertD = "insert into order_detail values((select nvl(max(detail_number),0)+1 from order_detail),?,?,?)";
+	String sql_insertS = "insert into order_single(customer_id, single_date) values (?,now())";
+	String sql_insertD = "insert into order_detail(single_number,product_number,product_count) values((select max(single_number) from order_single),?,?)";
 	String sql_selectAll = "select * from order_single order by single_number desc";
 	String sql_selectSearch ="select * from order_single where single_number=?"; 
 	String sql_delete = "delete from order_single where single_number=?"; //order_detail 테이블과 제약조건으로 묶여있기 때문에 상세주문도 같이 삭제 
@@ -34,19 +34,18 @@ public class OrderDAO {
 			pstmt.executeUpdate();
 			for (int i = 0; i < os.getDetails().size(); i++) {
 				pstmt = conn.prepareStatement(sql_insertD);
-				pstmt.setString(1, os.getSingle().getCustomer_id());
-				pstmt.setInt(2, os.getDetails().get(i).getProduct_number());
-				pstmt.setInt(3, os.getDetails().get(i).getProduct_count());
+				pstmt.setInt(1, os.getDetails().get(i).getProduct_number());
+				pstmt.setInt(2, os.getDetails().get(i).getProduct_count());
 				pstmt.executeUpdate();
 			}
+			return true;
 		} catch (SQLException e) {
 			System.out.println("OrderDAO의 insert()에서 문제 발생!");
 			e.printStackTrace();
-			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, conn);
 		}
-		return true;
+		return false;
 	}
 	public ArrayList<OrderSet> selectAll() {
 		ArrayList<OrderSet> orders = new ArrayList<OrderSet>();

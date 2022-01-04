@@ -17,13 +17,7 @@ public class UpdateCartAction implements Action{
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int product_number = Integer.parseInt(request.getParameter("product_number"));
         int product_count = Integer.parseInt(request.getParameter("product_count"));
-
-        if(product_count<=0){ // 만약 수정하고 싶은 개수가 0보다 작거나 같다면 업데이트 될 수 없도록 한다
-            response.setContentType("text/html; charset=UTF-8");
-            PrintWriter out = response.getWriter(); // 스크립트 printwriter
-            out.println("<script>alert('상품 개수는 1개이상 으로 선택해주세요!');history.go(-1);</script>"); // forward가 null 일때는 front controller 가 끝나고 난뒤 이 문항을 실행한다
-            return null;
-        }
+//        System.out.println("count : "+request.getParameter("product_number")+"\nnumber : "+request.getParameter("product_count"));
 
         HttpSession session = request.getSession();
         ProductCart cart = (ProductCart) session.getAttribute("cart"); // 세션에서 카트 정보를 갖고 온다

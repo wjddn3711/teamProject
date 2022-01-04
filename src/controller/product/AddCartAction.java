@@ -50,6 +50,7 @@ public class AddCartAction implements Action{
             ArrayList<ProductSingleCart> singleProducts = null;
             boolean isContain = false;
 
+
             if(session.getAttribute("cart")!=null){
                 cart = (ProductCart) session.getAttribute("cart");
                 singleProducts = cart.getSingleProducts();

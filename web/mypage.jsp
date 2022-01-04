@@ -42,7 +42,7 @@
           <h5 class="text-spacing-200 text-capitalize">♥</h5>
           <ul class="nav list-category list-category-down-md-inline-block">
             <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s"><a class="active" href="#tabs-4-1" data-toggle="tab">회원정보 수정</a></li>
-            <c:if test="${product_set!=null}">
+            <c:if test="${order_set!=null}">
               <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s"><a href="#tabs-4-2" data-toggle="tab">내 밥상 보기</a></li>
             </c:if>
             <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s"><a href="#tabs-4-3" data-toggle="tab">회원 탈퇴</a></li>
@@ -54,7 +54,7 @@
             <div class="tab-pane fade show active" id="tabs-4-1">
               <mytag:updateUser />
             </div>
-            <c:if test="${product_set!=null}">
+            <c:if test="${order_set!=null}">
               <div class="tab-pane fade" id="tabs-4-2">
               <mytag:mytable />
               </div>

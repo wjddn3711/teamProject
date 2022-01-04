@@ -68,8 +68,7 @@
                             <article class="product wow fadeInLeft" data-wow-delay=".15s">
                                 <div class="product-figure"><img src="${v.product_image}" alt="" width="161" height="162"/>
                                 </div>
-                                <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
-                                </div>
+                                <hr>
                                 <h6 class="product-title">${v.product_name}</h6>
                                 <div class="product-price-wrap">
                                     <div class="product-price">₩ ${v.product_price}</div>
