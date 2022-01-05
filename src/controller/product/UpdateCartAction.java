@@ -23,13 +23,16 @@ public class UpdateCartAction implements Action{
         ProductCart cart = (ProductCart) session.getAttribute("cart"); // 세션에서 카트 정보를 갖고 온다
         ArrayList<ProductSingleCart> singleProducts = cart.getSingleProducts();
 
+        int totalPrice = 0;
         for (ProductSingleCart singleProduct : singleProducts) {
             if(singleProduct.getProductVO().getProduct_number()==product_number){
                 singleProduct.setProduct_count(product_count);
-                break;
             }
+            totalPrice+=singleProduct.getProduct_price();
         }
+        session.setAttribute("totalPrice",totalPrice); // 전체 금액을 세션에 저장
         cart.setSingleProducts(singleProducts); // 추가 한것으로 업데이트
+        session.setAttribute("cart",cart);
         ActionForward forward = new ActionForward();
         forward.setPath("cart.jsp");
         forward.setRedirect(true); // 넘겨줄 데이터 X

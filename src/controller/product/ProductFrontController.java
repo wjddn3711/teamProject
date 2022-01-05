@@ -86,7 +86,6 @@ public class ProductFrontController extends HttpServlet {
         }
         else if(command.equals("updateCart")){
             try{
-                System.out.println("update Cart fc");
                 forward = new UpdateCartAction().execute(request, response);
             } catch (Exception e){
                 System.out.println("update Cart 수행중 문제 발생");

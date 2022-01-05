@@ -16,8 +16,12 @@ public class DeleteCartAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // product_number 를 뷰에서 받아와 해당 상품을 지운뒤 다시 장바구니로
-        int product_number = Integer.parseInt(request.getParameter("product_number"));
         HttpSession session = request.getSession();
+        if(request.getParameter("undoSubscribe")!=null){
+            session.removeAttribute("product_set");
+            session.removeAttribute("product_set_price"); // 세션에서 장바구니 관련 속성을 지운다
+        }
+        int product_number = Integer.parseInt(request.getParameter("product_number"));
         ProductCart cart = (ProductCart) session.getAttribute("cart");
         ArrayList<ProductSingleCart> singleProducts = cart.getSingleProducts();
         for (int i = 0; i < singleProducts.size(); i++) {
