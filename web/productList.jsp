@@ -44,9 +44,9 @@
                         <tr>
                             <th style="padding:5px;">
                                 <div>&nbsp;보기 :&nbsp;
-                                    <a href="productFilter.pd?filter=main" class="filter">메인</a>&nbsp;|&nbsp;
-                                    <a href="productFilter.pd?filter=side" class="filter">사이드</a>&nbsp;|&nbsp;
-                                    <a href="productFilter.pd?filter=soup" class="filter">&nbsp;국&nbsp;</a>
+                                    <a href="productFilter.pd?filter=main" >메인</a>&nbsp;|&nbsp;
+                                    <a href="productFilter.pd?filter=side" >사이드</a>&nbsp;|&nbsp;
+                                    <a href="productFilter.pd?filter=soup" >&nbsp;국&nbsp;</a>
                                 </div>
                             </th>
                         </tr>

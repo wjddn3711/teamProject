@@ -44,8 +44,8 @@
                     <tr>
                         <th colspan="4" style="padding:5px;">
                             <div style="text-align:right;">&nbsp;&nbsp;정렬 :&nbsp;
-                                <a href="categoryBoard.do?category=favorite" class="filter">추천순</a>&nbsp;|&nbsp;
-                                <a href="categoryBoard.do?category=recent" class="filter">최신순</a>&nbsp;
+                                <a href="categoryBoard.do?category=favorite" >추천순</a>&nbsp;|&nbsp;
+                                <a href="categoryBoard.do?category=recent" >최신순</a>&nbsp;
                                 <mytag:mypost/>
                             </div>
                         </th>

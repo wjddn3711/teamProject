@@ -21,9 +21,10 @@ public class CheckOutAction implements Action{
         CustomerVO cvo = new CustomerVO();
         cvo.setCustomer_id(customer_id);
         CustomerVO userData = customerDAO.selectOne(cvo); // 유저 데이터를 받아옴
+        System.out.println(userData);
         // 유저 데이터 저장
         request.setAttribute("userData", userData);
-        forward.setPath("checkout.jsp");
+        forward.setPath("payment.jsp");
         forward.setRedirect(false); // 전달할 데이터가 있으니 forward
         return forward;
     }

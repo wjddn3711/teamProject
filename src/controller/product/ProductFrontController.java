@@ -105,6 +105,13 @@ public class ProductFrontController extends HttpServlet {
                 System.out.println("payment 수행중 문제 발생");
             }
         }
+        else if(command.equals("checkout")){
+            try{
+                forward = new CheckOutAction().execute(request, response);
+            } catch (Exception e){
+                System.out.println("payment 수행중 문제 발생");
+            }
+        }
 
         if(forward!=null){
             if(forward.isRedirect()){
@@ -115,6 +122,5 @@ public class ProductFrontController extends HttpServlet {
                 dispatcher.forward(request,response);
             }
         }
-
     }
 }

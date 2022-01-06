@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css?ver=1">
+    <link rel="stylesheet" href="css/style.css?ver=2">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
@@ -41,104 +41,108 @@
             <div class="container">
                 <!-- <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Selected Pizzas</span></h3> -->
 
-<%--                <div class="row row-lg row-30">--%>
-                        <!-- 구독권 안내 -->
-                        <div class="tableWrapper4">
-                            <table>
-                                <tr>
-                                    <th colspan="3">[구독권]</th>
-                                </tr>
-                                <tr>
-                                    <c:choose>
-                                        <c:when test="${product_set==null}">
-                                            <td colspan="2">선택 안함</td>
-                                            <td><a class="btn btn-lg btn-block btn-round btn-b" href="subscription.jsp">구독하러 가기</a></td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:choose>
-                                                <c:when test="${product_set.soup_check=='포함'}">
-                                                    <td>30일 정기구독권(국포함)</td>
-                                                    <td>${product_set_price}</td>
-                                                    <td><mytag:subscrTglBtn /></td>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <td>30일 정기구독권</td>
-                                                    <td>가격</td>
-                                                    <td><mytag:subscrTglBtn /></td>
-                                                </c:otherwise>
-                                            </c:choose>
+                    <!-- 구독권 안내 -->
+                    <div class="tableWrapper4">
+                        <table>
+                            <colgroup>
+                                <col width="40%">
+                                <col width="30%">
+                                <col width="30%">
+                            </colgroup>
+                            <tr>
+                                <th colspan="4">[구독권]</th>
+                            </tr>
+                            <tr>
+                                <c:choose>
+                                    <c:when test="${product_set==null}"> <!-- 구독 선택하지 않았다면 -->
+                                        <td colspan="3">선택 안함</td>
+                                        <td><a class="btn btn-lg btn-round btn-b" href="subscription.jsp">구독하러 가기</a></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${product_set.soup_check=='포함'}">
+                                                <td>30일 정기구독권(국포함)</td>
+                                                <td colspan="2">${product_set_price}</td>
+                                                <td><a href="deleteCart.pd?undoSubscribe=yes">X</a></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td>30일 정기구독권</td>
+                                                <td colspan="2">가격</td>
+                                                <td><a href="deleteCart.pd?undoSubscribe=yes">X</a></td>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                </tr>
-                            </table>
+                            </tr>
+                        </table>
 
-                            <!-- 단품목록 안내 -->
-                            <table>
-                                <tr>
-                                    <th colspan="4">[단품]</th>
-                                </tr>
-                                <tr>
-                                    <td>상품명</td>
-                                    <td>상품 가격</td>
-                                    <td colspan="2">수량(최대:99)</td>
-                                </tr>
-                                <tr>
-                                    <c:choose>
-                                        <c:when test="${cart.singleProducts==null}">
-                                            <td colspan="2">선택 안함</td>
-                                            <td><a class="btn btn-lg btn-block btn-round btn-b" href="productList.pd">단품 추가하기</a></td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:forEach var="v" items="${cart.singleProducts}">
-                                <tr>
-                                <form action="updateCart.pd" method="post">
-                                    <input type="hidden" name="product_number" value="${v.productVO.product_number}">
-                                    <td>${v.productVO.product_name}</td>
-                                    <td>${v.product_price}</td>
-                                    <td><input type="number" name="product_count"
-                                               value="${v.product_count}" max="40" min="1" required="required" /></td>
-                                    <td><input type="submit" value="변경"></td>
-                                    <td><a href="deleteCart.pd"></a></td>
-                                    <hr>
-                                </form>
-                                </tr>
-                                            </c:forEach>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </tr>
-                            </table>
-                        </div>
-
-
-
-<%--                        <input type="submit" value="이대로 결제!" class="btn btn-lg btn-block btn-round btn-b">--%>
-<%--                </div>--%>
-                <!-- 종합 가격 안내 -->
-                <div class="tableWrapper5" >
-                    <table>
+                        <!-- 단품목록 안내 -->
+                        <table>
+                            <colgroup>
+                                <col width="40%">
+                                <col width="30%">
+                                <col width="30%">
+                            </colgroup>
+                            <tr>
+                                <th colspan="4">[단품]</th>
+                            </tr>
+                            <tr>
+                                <td>상품명</td>
+                                <td>개당 가격</td>
+                                <td colspan="2">수량(최대:99)</td>
+                            </tr>
+                            <tr>
+                                <c:choose>
+                                    <c:when test="${cart.singleProducts==null}"> <!-- 단품을 선택하지 않았다면 -->
+                                        <td colspan="3">선택 안함</td>
+                                        <td><a class="btn btn-lg btn-round btn-b" href="productList.pd">단품 추가하기</a></td>
+                                    </c:when>
+                                    <c:otherwise> <!-- 단품을 선택했다면 -->
+                                        <c:forEach var="v" items="${cart.singleProducts}">
                         <tr>
-                            <th colspan="5">가격종합<span style="text-align: right;"><a>변경정보 적용하기</a></span></th>
+                                    <form action="updateCart.pd" method="post">
+                                        <input type="hidden" name="product_number" value="${v.productVO.product_number}">
+                                            <td>${v.productVO.product_name}</td>
+                                            <td>${v.product_price}</td>
+                                            <td><input type="number" name="product_count" min="1" max="99" value="${v.product_count}">
+                                                <input type="submit" value="변경하기">
+                                            <td><a href="deleteCart.pd?product_number=${v.productVO.product_number}">X</a></td>
+                                    </form>
                         </tr>
-                        <tr>
-                            <td>구독권</td>
-                            <td>+</td>
-                            <td>단품</td>
-                            <td>=</td>
-                            <td>총합</td>
-                        </tr>
-                        <tr>
-                            <td>${product_set_price}</td>
-                            <td></td>
-                            <td>${totalPrice}</td>
-                            <td></td>
-                            <td>${product_set_price+totalPrice}</td>
-                        </tr>
-                    </table>
-                </div>
+                                        </c:forEach>
+                                    </c:otherwise>
+                                </c:choose>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- 종합 가격 안내 -->
+                    <div class="tableWrapper5">
+                        <table>
+                            <tr>
+                                <th colspan="5">가격종합<span style="text-align: right;"><a href="#">변경정보 적용하기</a></span></th> <!-- 링크추가하기 -->
+                            </tr>
+                            <tr>
+                                <td>구독권</td>
+                                <td>+</td>
+                                <td>단품</td>
+                                <td>=</td>
+                                <td>총합</td>
+                            </tr>
+                            <tr>
+                                <td>${product_set_price}</td>
+                                <td></td>
+                                <td>${totalPrice}</td>
+                                <td></td>
+                                <td>${product_set_price+totalPrice}</td>
+                            </tr>
+                        </table>
+                    </div>
+                <a href="checkout.pd" class="btn btn-lg btn-round btn-b">이대로 결제!</a>
+<%--                    <input type="submit" value="이대로 결제!" class="btn btn-lg btn-round btn-b">--%>
             </div>
         </section>
-
     </section>
 
     <!-- Page Footer-->
