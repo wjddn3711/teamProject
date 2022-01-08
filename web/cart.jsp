@@ -28,7 +28,7 @@
 <div class="page">
 
     <!-- Page Header-->
-    <mytag:pageHeader pageSector="product"/>
+    <mytag:pageHeader pageSector=""/>
 
     <!-- productList -->
     <section class="body">
@@ -118,10 +118,10 @@
                     </div>
 
                     <!-- 종합 가격 안내 -->
-                    <div class="tableWrapper5">
+                    <div class="tableWrapper4">
                         <table>
                             <tr>
-                                <th colspan="5">가격종합<span style="text-align: right;"><a href="#">변경정보 적용하기</a></span></th> <!-- 링크추가하기 -->
+                                <th colspan="5">가격종합</th> <!-- 링크추가하기 -->
                             </tr>
                             <tr>
                                 <td>구독권</td>

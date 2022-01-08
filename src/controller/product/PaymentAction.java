@@ -23,7 +23,6 @@ public class PaymentAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ProductCart cart = (ProductCart) session.getAttribute("cart");
         String customer_id = (String) session.getAttribute("customer_id");
         OrderDAO dao = new OrderDAO();
         OrderSet os= new OrderSet();
@@ -31,42 +30,55 @@ public class PaymentAction implements Action{
         oss.setCustomer_id(customer_id);
         os.setSingle(oss); // id 넣기
 
-        ArrayList<ProductSingleCart> products = cart.getSingleProducts();
-        ArrayList<Order_detailVO> orderDetail = new ArrayList<>();
-        for (ProductSingleCart product : products) {
-            Order_detailVO od = new Order_detailVO();
-            od.setProduct_number(product.getProductVO().getProduct_number());
-            od.setProduct_count(product.getProduct_count());
-            orderDetail.add(od);
-        }
-        os.setDetails(orderDetail);
-
-        ActionForward forward = null;
-        if(dao.insert(os)){
+        // 상품 관련 장바구니
+        if(session.getAttribute("cart")!=null){
+            ProductCart cart = (ProductCart) session.getAttribute("cart");
+            ArrayList<ProductSingleCart> products = cart.getSingleProducts();
+            ArrayList<Order_detailVO> orderDetail = new ArrayList<>();
+            for (ProductSingleCart product : products) {
+                Order_detailVO od = new Order_detailVO();
+                od.setProduct_number(product.getProductVO().getProduct_number());
+                od.setProduct_count(product.getProduct_count());
+                orderDetail.add(od);
+                session.removeAttribute("cart");
+                session.removeAttribute("totalPrice"); //세션에 장바구니관련 정보 없애기
+            }
+            os.setDetails(orderDetail);
+            dao.insert(os);
             System.out.println("주문 정보 저장완료");
-            Order_suscriptionDAO odao = new Order_suscriptionDAO();
-            Order_subscriptionVO ovo = new Order_subscriptionVO();
-            if(session.getAttribute("product_set")!=null){ // 구독 주문을 하였다면
-                Product_setVO productSetVO = (Product_setVO) session.getAttribute("product_set");
-                ovo.setSoup_check(productSetVO.getSoup_check());
-                ovo.setProduct_set_number(productSetVO.getProduct_set_number());
-                ovo.setCustomer_id(customer_id);
-                if(odao.insert(ovo)){
-                    System.out.println("주문 성공!");
-                    forward = new ActionForward();
-                    forward.setPath("orderDone.jsp");
-                    forward.setRedirect(true);
-                    return forward;
-                }
+        }
+
+        // 구독관련 장바구니
+        ActionForward forward = null;
+        Order_suscriptionDAO odao = new Order_suscriptionDAO();
+        Order_subscriptionVO ovo = new Order_subscriptionVO();
+        if(session.getAttribute("product_set")!=null){ // 구독 주문을 하였다면
+            Product_setVO productSetVO = (Product_setVO) session.getAttribute("product_set");
+            ovo.setCustomer_id(customer_id);
+            if(odao.selectIsExist(ovo)){ // 만약 해당 기간내에 주문정보가 존재한다면
+                session.removeAttribute("product_set");
+                session.removeAttribute("product_set_price"); // 장바구니에서 구독정보를 삭제해준다
+                forward = new ActionForward();
+                forward.setPath("orderFail.jsp");
+                forward.setRedirect(true);
+                // 문서에 글을 쓸 준비 !
+                return forward;
+            }
+            ovo.setSoup_check(productSetVO.getSoup_check());
+            ovo.setProduct_set_number(productSetVO.getProduct_set_number());
+            boolean isOk = odao.insert(ovo); // 구독 주문정보 저장
+            System.out.println("ovo :"+ovo);
+            if(isOk){
+                System.out.println("구독 주분 정보 저장완료");
+                session.removeAttribute("product_set");
+                session.removeAttribute("product_set_price"); //세션에 저장된 구독관련 정보 없애기
             }
         }
-        // 만약 insert 실패라면 실패 메시지
-        System.out.println("실패!");
-        forward = null;
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter(); // 스크립트 printwriter
-        out.println("<script>alert('결제 실패!');history.go(-1);</script>"); // forward가 null 일때는 front controller 가 끝나고 난뒤 이 문항을 실행한다
-        // 문서에 글을 쓸 준비 !
-        return null;
+        forward = new ActionForward();
+        forward.setPath("orderDone.jsp");
+        forward.setRedirect(true);
+        return forward;
+
+
     }
 }

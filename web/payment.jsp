@@ -37,7 +37,7 @@
         <div class="container">
 
             <!--결제하기 페이지 -->
-            <form action="#" method="post">
+            <form action="payment.pd" method="post">
                 <!--주문 고객 정보  -->
                 <div class="tableWrapper6">
                     <table>
@@ -105,36 +105,33 @@
                             <td>수량</td>
                         </tr>
                         <tr>
-                            <c:choose>
-                                <c:when test="${product_set==null}"/>
-                                <c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${product_set.soup_check eq '포함'}"> <!-- 국 포함이라면-->
-                                            <td>30일 정기구독권(국포함)</td>
-                                            <td>product_set_price</td>
-                                            <td>1</td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <td>30일 정기구독권</td>
-                                            <td>product_set_price</td>
-                                            <td>1</td>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:otherwise>
-                            </c:choose>
+                            <c:if test="${product_set!=null}">
+                                <c:choose>
+                                    <c:when test="${product_set.soup_check eq '포함'}"> <!-- 국 포함이라면-->
+                                        <td>30일 정기구독권(국포함)</td>
+                                        <td>${product_set_price}</td>
+                                        <td>1</td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td>30일 정기구독권</td>
+                                        <td>${product_set_price}</td>
+                                        <td>1</td>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:if>
                         </tr>
-                        <tr>
-                            <c:choose>
-                                <c:when test="${cart.singleProducts==null}" />
-                                <c:otherwise>
-                                    <c:forEach var="v" items="${cart.singleProducts}">
-                                        <td>${v.productVO.product_name}</td>
-                                        <td>${v.product_price}</td>
-                                        <td>${v.product_count}</td>
-                                    </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
-                        </tr>
+
+                            <c:if test="${cart.singleProducts!=null}">
+
+                                <c:forEach var="v" items="${cart.singleProducts}">
+                                    <tr>
+                                    <td>${v.productVO.product_name}</td>
+                                    <td>${v.product_price}</td>
+                                    <td>${v.product_count}</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
+
                         <tr>
                             <td>총 결제 금액 :</td>
                             <td colspan="2">${product_set_price+totalPrice}</td>

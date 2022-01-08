@@ -30,10 +30,10 @@
             <tr>
                 <td rowspan="2">주소</td>
                 <td><input name="ZIP_CODE"  type="text" id="sample4_postcode" placeholder="${userData.ZIP_code}" required></td>
-                <td><input type="button"  onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><mytag:postcode /></td>
+                <td><input id="input" type="button" style="border-radius: 10px;" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><mytag:postcode /></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:left; border-top:dotted;"><input name="detailed_address" type="text" id="sample4_detailAddress"  placeholder="${userData.detailed_address}" required></td>
+                <td colspan="2" style="text-align:left; border-top:solid #9b9b9b 0.7px; "><input name="detailed_address" type="text" id="sample4_detailAddress"  placeholder="${userData.detailed_address}" required></td>
             </tr>
             <tr>
                 <td>핸드폰 번호</td>

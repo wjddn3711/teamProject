@@ -44,8 +44,6 @@
               <!-- RD Navbar Nav-->
               <!-- page가 어디부분인지 버튼에 밑줄로 안내 -->
               <ul class="rd-navbar-nav">
-                <li class="${pageSector eq 'identity' ? 'rd-nav-item active' : 'rd-nav-item'}"><a class="rd-nav-link" href="#">정체성</a>
-                </li>
                 <li class="${pageSector eq 'subscription' ? 'rd-nav-item active' : 'rd-nav-item'}"><a class="rd-nav-link" href="subscription.jsp">정기 구독</a>
                 </li>
                 <li class="${pageSector eq 'product' ? 'rd-nav-item active' : 'rd-nav-item'}"><a class="rd-nav-link" href="productList.pd">단품 구매</a>

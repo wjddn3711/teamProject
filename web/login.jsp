@@ -42,10 +42,10 @@
                             <td><input name="customer_password" type="password"></td>
                         </tr>
                         <tr style="padding:10px;">
-                            <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">로그인</button></td>
+                            <td rowspan="3"><a style="border-radius: 20px; margin-top: 5px;" class="button2 button-md button-primary button-winona wow fadeInRight" href="findIdPwd.jsp" >아이디/비밀번호 찾기</a></td>
                         </tr>
                         <tr style="padding:10px;">
-                            <td rowspan="3"><a class="button2 button-md button-primary button-winona wow fadeInRight" href="findIdPwd.jsp" >아이디/비밀번호 찾기</a></td>
+                            <td rowspan="3"><button class="button2 button-md button-primary button-winona wow fadeInRight" type="submit" formmethod="post">로그인</button></td>
                         </tr>
                     </table>
                 </form>

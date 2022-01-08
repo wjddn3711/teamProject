@@ -6,19 +6,19 @@
 
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="ko">
-    <head>
-        <title>단품구매</title>
-        <meta name="format-detection" content="telephone=no">
-        <meta name="viewport"
-              content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8">
-        <mytag:icon />
-        <!-- Stylesheets-->
-        <link rel="stylesheet" type="text/css"
-              href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/fonts.css">
+<head>
+    <title>단품구매</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <mytag:icon />
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -44,10 +44,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 mb-sm-40">
-                            <a
-                                    href="${productVO.product_image}"><img
-                                    style="border-radius: 20px;"
-                                    src="${productVO.product_image}"
+                            <a href="${productVO.product_image}"><img
+                                    style="border-radius: 20px;" src="${productVO.product_image}"
                                     alt="Single Product Image" /></a>
                         </div>
                         <div class="col-sm-6">
@@ -62,29 +60,28 @@
                                         <p class="q">${productVO.product_price}원</p>
                                         <hr>
                                         <p class="q2">
-                                            ${productVO.details}<br> <br>Categories:<a href="productFilter.pd?filter=${productVO.product_type}">
-                                                ${productVO.product_type} </a>
+                                            ${productVO.details}<br> <br>Categories:
+                                            ${productVO.product_type} </>
                                         </p>
                                     </div>
                                 </article>
                             </div>
                             <form action="productAdd.pd" method="post">
-                            <div class="row mb-20">
-                                    <input type="hidden" name="product_number" value="${productVO.product_number}">
+                                <div class="row mb-20">
+                                    <input type="hidden" name="product_number"
+                                           value="${productVO.product_number}">
                                     <div class="col-sm-4 mb-sm-20">
-                                        <input class="form-control input-lg" type="number" name="product_count"
-                                               value="1" max="40" min="1" required="required" />
+                                        <input class="form-control input-lg" type="number"
+                                               name="product_count" value="1" max="99" min="1"
+                                               required="required" style="margin-left: 40px;" />
                                     </div>
                                     <div class="col-sm-8">
-                                        <button class="btn btn-lg btn-block btn-round btn-b" type="submit" >Add
-                                            To Cart</button>
-                                        <style>
-                                            .btn:hover{
-                                                opacity: 0.7;
-                                            }
-                                        </style>
+                                        <button
+                                                class="button2 button-md button-primary button-winona wow fadeInRight"
+                                                type="submit"
+                                                style="visibility: visible; animation-name: fadeInRight; width: 300px; height: 52px;">장바구니에 추가</button>
                                     </div>
-                            </div>
+                                </div>
                             </form>
                         </div>
                     </div>
