@@ -19,7 +19,7 @@
             <br>
             <input type="password" name="customer_password" placeholder="비밀번호를 입력하세요">
             <br>
-            <button class="button button-xs button-winona fadeInRight" onclick="del()">회원탈퇴</button>
+            <button class="button button-xs button-winona fadeInRight" type="submit">회원탈퇴</button>
         </form>
     </article>
 </div>
