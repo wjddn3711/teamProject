@@ -1,16 +1,13 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 
-<script type="text/javascript">
-    function del(){
-        ans=confirm("회원님의 구독정보와 주문정보는 복구되지않습니다. \n정말 탈퇴하시겠습니까?");
-        if(ans==true){
-            document.withdrawal.submit();
-        }
-        else{
-            return;
-        }
-    }
-</script>
+<%--<script type="text/javascript">--%>
+<%--    function del(){--%>
+<%--        ans=confirm("회원님의 구독정보와 주문정보는 복구되지않습니다. \n정말 탈퇴하시겠습니까?");--%>
+<%--        if(ans==true){--%>
+<%--            document.withdrawal.submit();--%>
+<%--        }--%>
+<%--    }--%>
+<%--</script>--%>
 
 <div class="group-custom-1 group-middle oh-desktop" style="margin-top: 60px; width:80%;">
     <article class="quote-classic quote-classic-3">
