@@ -139,7 +139,14 @@
                             </tr>
                         </table>
                     </div>
-                <a href="checkout.pd" class="btn btn-lg btn-round btn-b">이대로 결제!</a>
+                <c:choose>
+                    <c:when test="${product_set==null&&cart==null}">
+                        <a href="productList.pd" class="btn btn-lg btn-round btn-b">상품 보러가기</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="checkout.pd" class="btn btn-lg btn-round btn-b">이대로 결제!</a>
+                    </c:otherwise>
+                </c:choose>
 <%--                    <input type="submit" value="이대로 결제!" class="btn btn-lg btn-round btn-b">--%>
             </div>
         </section>
