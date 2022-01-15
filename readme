@@ -1,6 +1,6 @@
 # **요구사항 분석**
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfOTEg/MDAxNjQxOTc0NDA4NzU3.qTu-IeiGgRjFeu8HBgsE-JBe2tJNOuda9sQbMbNWiJYg.1Ob3uOqxnZRKvRZIfwGmpnAaFqZB4No-z6Vo9AMWF0Qg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfOTEg/MDAxNjQxOTc0NDA4NzU3.qTu-IeiGgRjFeu8HBgsE-JBe2tJNOuda9sQbMbNWiJYg.1Ob3uOqxnZRKvRZIfwGmpnAaFqZB4No-z6Vo9AMWF0Qg.PNG.wjddn3711/image.png?type=w1)
+
 
 본격적인 팀플 시작에 앞서 프로젝트 주제 선정을 위해 현대인들이 가장 필요로하는 서비스는 어떤 것일까,
 
@@ -30,7 +30,7 @@
 
 3. 집반찬연구소
 
-[1월 신규 회원 혜택 :: 집반찬연구소 이야기](https://www.zipbanchan.co.kr/shop/board/view.php?id=linkBoard&no=864&list_bt_type=y&utm_source=google_pc&utm_medium=cpc&utm_term=집반찬&gclid=CjwKCAiA24SPBhB0EiwAjBgkhmdaRQroZHeNEpsvCbC0VUEtgmIXV0H-g5lf4mqaQREsHzRRXu9kNhoCWGsQAvD_BwE)
+
 
 전반적인 초기데이터를 위한 크롤러를 위해 집반찬 연구소를 참고 하였습니다.
 
@@ -39,15 +39,6 @@
 ---
 
 # **User Flow**
-
-v1
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTYw/MDAxNjQxOTc0NTY2ODY3.aG7LeVoRWZkwePgaue3uT9692hSskHeR8U9d7L2ZlyAg.tKeTTYnQWZTdym7W49hSYxKcH4w0KlD69jxm9s26OoUg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTYw/MDAxNjQxOTc0NTY2ODY3.aG7LeVoRWZkwePgaue3uT9692hSskHeR8U9d7L2ZlyAg.tKeTTYnQWZTdym7W49hSYxKcH4w0KlD69jxm9s26OoUg.PNG.wjddn3711/image.png?type=w1)
-
-v2
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjQ5/MDAxNjQxOTc0NTcyMTY4.-oJ2hwR6UjLSbzg5x1MdsbTdtrYIq7bSKTLmgIs_vnIg.HNy0cgea6Q4m4verdfWUakhkgdmZZ6fh5a5W02j3SIUg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjQ5/MDAxNjQxOTc0NTcyMTY4.-oJ2hwR6UjLSbzg5x1MdsbTdtrYIq7bSKTLmgIs_vnIg.HNy0cgea6Q4m4verdfWUakhkgdmZZ6fh5a5W02j3SIUg.PNG.wjddn3711/image.png?type=w1)
-
 저희의 주요 메뉴는 총 3가지입니다.
 
 첫 번째 메뉴 '정기구독'에서는 말 그대로 저희 반찬 배송 서비스를 구독할 수 있습니다.
@@ -102,13 +93,6 @@ v2
 
 # **ERD**
 
-v1
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTE2/MDAxNjQxOTc0NzU3MzMy.tst0F9OO8vTPPK1gLSOXcYpbnwwCq0st8wt4UNyxdLAg.5PM6GQ7HgV43l8OBRe49wJDBiXcKgvwcgbYulYZjT44g.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTE2/MDAxNjQxOTc0NzU3MzMy.tst0F9OO8vTPPK1gLSOXcYpbnwwCq0st8wt4UNyxdLAg.5PM6GQ7HgV43l8OBRe49wJDBiXcKgvwcgbYulYZjT44g.PNG.wjddn3711/image.png?type=w1)
-
-v2
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTIz/MDAxNjQxOTc0NzY1MTA3.mY3wwX7z74bb75FlGfvnNmvorMSJDvDKgczwoCyaw0sg.SrW6iFD5VWQ-CTtiBvaxb9iQMhpDIqMerplPaZIxkyAg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTIz/MDAxNjQxOTc0NzY1MTA3.mY3wwX7z74bb75FlGfvnNmvorMSJDvDKgczwoCyaw0sg.SrW6iFD5VWQ-CTtiBvaxb9iQMhpDIqMerplPaZIxkyAg.PNG.wjddn3711/image.png?type=w1)
 
 user flow를 토대로 erd를 작성하였습니다.
 
@@ -168,17 +152,6 @@ user flow를 토대로 erd를 작성하였습니다.
 
 # **로직 프로세스**
 
-v1
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTY0/MDAxNjQxOTc0ODYzMDgz.D24BCKATi9DvYPxfRRiXloyCKKJmMlafU9iNnr1qKkcg.f_1FQt2_fY6ggmLbwNkrr5msMRhMGd5mAJuCrnIjJq8g.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTY0/MDAxNjQxOTc0ODYzMDgz.D24BCKATi9DvYPxfRRiXloyCKKJmMlafU9iNnr1qKkcg.f_1FQt2_fY6ggmLbwNkrr5msMRhMGd5mAJuCrnIjJq8g.PNG.wjddn3711/image.png?type=w1)
-
-v2
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfNTIg/MDAxNjQxOTc0ODc4NjEw.qYw8i1ZLG6kkcHF--Qmc0BJiNCzm8DrWpl77USWsULMg.LX0O-PVumOApUHrrouh5IblbXckjFxOpiKOY2pWl-F8g.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfNTIg/MDAxNjQxOTc0ODc4NjEw.qYw8i1ZLG6kkcHF--Qmc0BJiNCzm8DrWpl77USWsULMg.LX0O-PVumOApUHrrouh5IblbXckjFxOpiKOY2pWl-F8g.PNG.wjddn3711/image.png?type=w1)
-
-v3
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjY3/MDAxNjQxOTc0ODg1OTE3.B-aaH7ts2CsGVQC99j2qyI36xA2GGDYHmikQU6dttbIg.Sf03sJns8zqKS38lE-kvtb1edsQkL-F0yt7H_62woaQg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjY3/MDAxNjQxOTc0ODg1OTE3.B-aaH7ts2CsGVQC99j2qyI36xA2GGDYHmikQU6dttbIg.Sf03sJns8zqKS38lE-kvtb1edsQkL-F0yt7H_62woaQg.PNG.wjddn3711/image.png?type=w1)
 
 설계를 마친 유저플로우와 erd를 토대로 logic process를 완성했습니다.
 
@@ -196,7 +169,6 @@ v3
 
 # **개발환경**
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTgx/MDAxNjQxOTc0OTQ5NTAy.aIVWM-AuBlPIBDlEMko7G62kdNPbd8Ib_TDgvW_1Fcgg.B5NbDqxPqCGeOKx28yAOyigWgv1FF5QCc3NyP4VQPPgg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTgx/MDAxNjQxOTc0OTQ5NTAy.aIVWM-AuBlPIBDlEMko7G62kdNPbd8Ib_TDgvW_1Fcgg.B5NbDqxPqCGeOKx28yAOyigWgv1FF5QCc3NyP4VQPPgg.PNG.wjddn3711/image.png?type=w1)
 
 팀원들과의 개발환경의 통일성은 필수적이라고 생각됩니다.
 
@@ -214,15 +186,11 @@ v.a.b.c 라고 가정하였을 때 ( a : MVC 통합 , b : 비즈니스 메서드
 
 # **Model**
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfNDUg/MDAxNjQxOTc1Mzk3MDcw.h8u8z5yVXz_IKioe4nQ1hP87rr3LRP2OR0pQTOkiF8Eg.2oNScY_w6z5BrIdDir8yptYMghbhwSHU8jjsJBo4Qswg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfNDUg/MDAxNjQxOTc1Mzk3MDcw.h8u8z5yVXz_IKioe4nQ1hP87rr3LRP2OR0pQTOkiF8Eg.2oNScY_w6z5BrIdDir8yptYMghbhwSHU8jjsJBo4Qswg.PNG.wjddn3711/image.png?type=w1)
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjc0/MDAxNjQxOTc1NDAwOTg4.BDw9iKTxTghVfuhjjKikmZE9aoXEvN_Z4BOvDXqlBcEg.hDlUFnPHHXI6hgHoBuUtP7L6a9A6u5kdOqo-3HI0EN0g.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjc0/MDAxNjQxOTc1NDAwOTg4.BDw9iKTxTghVfuhjjKikmZE9aoXEvN_Z4BOvDXqlBcEg.hDlUFnPHHXI6hgHoBuUtP7L6a9A6u5kdOqo-3HI0EN0g.PNG.wjddn3711/image.png?type=w1)
 
 상세주문테이블과, 단품주문테이블의 통합관리를 위해서 VO를 set해주었습니다.
 
 이에따른 비즈니스 메서드 수행도 VO set을 리스트로 반환받아 컨트롤러에서 처리해주었습니다.
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfODIg/MDAxNjQxOTc1NDQ5MTU0.pg3wsZXnyHZHgKQ81Uu78vrhjfLp7v0jaCvGD7_rTbsg.xNDTQMUeQntxEvEXhIuZjiiPONFESpQUCrfObmlN8lAg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfODIg/MDAxNjQxOTc1NDQ5MTU0.pg3wsZXnyHZHgKQ81Uu78vrhjfLp7v0jaCvGD7_rTbsg.xNDTQMUeQntxEvEXhIuZjiiPONFESpQUCrfObmlN8lAg.PNG.wjddn3711/image.png?type=w1)
 
 구독주문 DAO는 일반 주문 DAO와 달리 특이한 메서드가 사용됩니다.
 
@@ -240,13 +208,10 @@ order single 과 order detail N개가 묶여있는 형태로 예를 들자면 �
 
 관계도라고 한다면 order single 과 order detail은 1:N 의 관계를 띄게 됩니다.
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfNDgg/MDAxNjQxOTc1NTI5ODk1.T9rlrZAeIzik0QCDOF5o8GHA4nHsMH0ptjq130VAqQwg.lvWGy3HZ4Yh-t4Ks7tQsP_Iu8wbjHhnRAuF90y3NTnAg.PNG.wjddn3711/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-01-12_%EC%98%A4%ED%9B%84_5.18.48.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfNDgg/MDAxNjQxOTc1NTI5ODk1.T9rlrZAeIzik0QCDOF5o8GHA4nHsMH0ptjq130VAqQwg.lvWGy3HZ4Yh-t4Ks7tQsP_Iu8wbjHhnRAuF90y3NTnAg.PNG.wjddn3711/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-01-12_%EC%98%A4%ED%9B%84_5.18.48.png?type=w1)
 
----
 
 # **View**
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMzUg/MDAxNjQxOTc1NjMxNzkx.Xa-2vuxI10qF8gMts6ky723CZEmAZSUdorJqrxGIzX8g.dhVWbmud5s0_1vHZIDLEcxmVTqBLOhm7qYPkw6P00O0g.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMzUg/MDAxNjQxOTc1NjMxNzkx.Xa-2vuxI10qF8gMts6ky723CZEmAZSUdorJqrxGIzX8g.dhVWbmud5s0_1vHZIDLEcxmVTqBLOhm7qYPkw6P00O0g.PNG.wjddn3711/image.png?type=w1)
 
 AJAX 를 사용한 비동기식 처리 방법입니다.
 
@@ -264,9 +229,6 @@ AJAX 의 특별한 점이라면 MVC 를 수행하는 것에 있는 특별함일 
 
 페이지의 이동없이 AJAX 를 토대로 id , pw validation을 진행하였으며 진행만 하는것이 아닌 만약 중복되는 아이디를 사용했다면 회원가입이 불가하도록 더 신경을 써주게 되었습니다
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjkz/MDAxNjQxOTc1ODg1Mzkw.yPovtCquITSXaKNHip1OUTruIqAZNO6F2jyH1HKUyf0g._PGekloWtYEmbmHhTVKe_4xSbygZmtsZ4AhoM20KIzkg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjkz/MDAxNjQxOTc1ODg1Mzkw.yPovtCquITSXaKNHip1OUTruIqAZNO6F2jyH1HKUyf0g._PGekloWtYEmbmHhTVKe_4xSbygZmtsZ4AhoM20KIzkg.PNG.wjddn3711/image.png?type=w1)
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjMg/MDAxNjQxOTc1ODg3Njk5.7y5qa-buvv06DomAy-1-L-hRywwhK8M_lki5jXnGnO0g.Xn3-0PUP4UBWJ4eutaB3Xyb7lT6pQg99DVwAUls4WBkg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjMg/MDAxNjQxOTc1ODg3Njk5.7y5qa-buvv06DomAy-1-L-hRywwhK8M_lki5jXnGnO0g.Xn3-0PUP4UBWJ4eutaB3Xyb7lT6pQg99DVwAUls4WBkg.PNG.wjddn3711/image.png?type=w1)
 
 헤더나 푸터, preloader 등 뷰에서 반복되는 코드들을 커스텀 태그로 관리하여 응집도를 높혔습니다.
 
@@ -298,7 +260,6 @@ View 는 비교적으로 Model, controller 가 모두 어느정도 틀을 잡은
 
 컨트롤러의 시작부분은 초기 데이터 설정 이였습니다.
 
-[https://dthumb-phinf.pstatic.net/?src=%22https://blogthumb.pstatic.net/MjAyMTEyMThfMjM4/MDAxNjM5NzYwNDYzMDk0.GYAUnlPbVlcJIZxpUJoGi2LK5scg4dCf31TYq_EByUAg.V-vT6iJsRwe2EF70lPkOqE4yGLmm_1j5MaOcEQhCe3Eg.PNG.wjddn3711/%25BD%25BA%25C5%25A9%25B8%25B0%25BC%25A6_2021-12-18_%25BF%25C0%25C0%25FC_2.00.25.png?type=w2%22&type=ff500_300](https://dthumb-phinf.pstatic.net/?src=%22https://blogthumb.pstatic.net/MjAyMTEyMThfMjM4/MDAxNjM5NzYwNDYzMDk0.GYAUnlPbVlcJIZxpUJoGi2LK5scg4dCf31TYq_EByUAg.V-vT6iJsRwe2EF70lPkOqE4yGLmm_1j5MaOcEQhCe3Eg.PNG.wjddn3711/%25BD%25BA%25C5%25A9%25B8%25B0%25BC%25A6_2021-12-18_%25BF%25C0%25C0%25FC_2.00.25.png?type=w2%22&type=ff500_300)
 
 **12.17 : 크롤링, 웹 리스너를 통하여 초기 데이터 설정**
 
@@ -310,9 +271,6 @@ View 는 비교적으로 Model, controller 가 모두 어느정도 틀을 잡은
 
 중복적으로 사용되는 코드의 양을 줄이고자 getName, getImg 등과 같은 메서드를 사용하여 하나의 class 에 관리하였습니다
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMTM3/MDAxNjQxOTc2NTk1NTE0.Az5YTiYHgU_MLZ55G0oXJrnYeFMKanPRQFZFO4XM7O4g.IyAVLDPEzLMRPI6m3OYY5a0-6iWrlNHUCYgT7VDKs_Mg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMTM3/MDAxNjQxOTc2NTk1NTE0.Az5YTiYHgU_MLZ55G0oXJrnYeFMKanPRQFZFO4XM7O4g.IyAVLDPEzLMRPI6m3OYY5a0-6iWrlNHUCYgT7VDKs_Mg.PNG.wjddn3711/image.png?type=w1)
-
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMzcg/MDAxNjQxOTc2NTk3ODA0.Ph0xag_qYMPpx4HxaHB08X_jngCSRinQ31K2N4O_YCkg.J_KNAHTjlPwoXBt2IHWCagYgro6addlebxWLhh2JhFQg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMzcg/MDAxNjQxOTc2NTk3ODA0.Ph0xag_qYMPpx4HxaHB08X_jngCSRinQ31K2N4O_YCkg.J_KNAHTjlPwoXBt2IHWCagYgro6addlebxWLhh2JhFQg.PNG.wjddn3711/image.png?type=w1)
 
 CoolSMS API 를 통한 비밀번호 찾기 구현
 
@@ -340,7 +298,6 @@ CoolSMS API 를 통한 비밀번호 찾기 구현
 
 # 팀 프로젝트를 하며 배운점들
 
-![https://blogfiles.pstatic.net/MjAyMjAxMTJfMjY2/MDAxNjQxOTc3MDY5ODUx.LnUumM5hPCXrYZWe91EIKEQKj5RXMbjUb2PG-NUJ27sg.lMpw9neD-ReF2676EUfBqTxYlNOhG_4FqdNqU6gvEQMg.PNG.wjddn3711/image.png?type=w1](https://blogfiles.pstatic.net/MjAyMjAxMTJfMjY2/MDAxNjQxOTc3MDY5ODUx.LnUumM5hPCXrYZWe91EIKEQKj5RXMbjUb2PG-NUJ27sg.lMpw9neD-ReF2676EUfBqTxYlNOhG_4FqdNqU6gvEQMg.PNG.wjddn3711/image.png?type=w1)
 
 1. **팀워크**
 
